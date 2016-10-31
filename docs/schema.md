@@ -10,6 +10,9 @@ password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
 ## routes
+
+Ken: Use associations: A Route has_many waypoints. Waypoints should be a separate table with a coordinates column. This will make editing routes easier.
+
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
