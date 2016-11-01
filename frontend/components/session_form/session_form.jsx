@@ -40,7 +40,12 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const user = this.state;
+		let user;
+		if (e.currentTarget.className.includes("guest")) {
+			user = {username: "guest", password: "password"};
+		} else {
+		user = this.state;
+		}
 		this.props.processForm({user});
 	}
 
@@ -65,6 +70,12 @@ class SessionForm extends React.Component {
 	}
 
 	render() {
+		let guestlogin;
+		if (this.props.formType === "login") {
+		guestlogin = <button className="auth-button guest" onClick={this.handleSubmit}>Guest Login</button>;
+	} else {
+		guestlogin = "";
+	}
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
@@ -92,7 +103,7 @@ class SessionForm extends React.Component {
 					</div>
 				</form>
 				<br/>
-				<input className="demo-login-button" type="submit" value="DEMO LOG IN" onClick={this.demoLogin}/>
+				{guestlogin}
 			</div>
 		);
 	}
