@@ -30,13 +30,3 @@ export const logout = success => {
 		}
 	});
 };
-
-export const guestlogin = (success,error) => {
-  $.ajax({
-    method: 'POST',
-    url: 'api/user',
-    data: {[username]:"guest",[password]:"password"},
-    success,
-    error
-  });
-};

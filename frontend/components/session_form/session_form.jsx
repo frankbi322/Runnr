@@ -17,11 +17,6 @@ class SessionForm extends React.Component {
 		this.password="password";
 	}
 
-	startDemo(){
-
-	}
-
-
 	componentDidUpdate() {
 		this.redirectIfLoggedIn();
 	}
