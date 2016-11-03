@@ -1,19 +1,13 @@
 import React from 'react';
+import RouteIndexItem from './route_index_item';
 
-class RoutesIndex extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
-  render(){
-    return (
-      <div>
-
-      </div>
-    );
-  }
-
-
-}
+const RoutesIndex = ({routes}) => (
+  <div>
+    <h1>Routes:</h1>
+    {routes.map(route => (
+      <RouteIndexItem route={route} key={route.id}/>
+    ))}
+  </div>
+);
 
 export default RoutesIndex;

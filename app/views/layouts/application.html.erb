@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RunR</title>
+    <title>RunnR</title>
     <%= csrf_meta_tags %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCN0VzTQhu6miUKKhmwVIEBfkrBdLtTV28"%>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyApIfSmh05sKYDsD506WRgLPeQihGFVLyI" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
-    <!-- CSS Reset -->
-    <!-- <link rel="stylesheet" href="bower_components/normalize.css/normalize.css"> -->
-
-    <!-- Milligram CSS minified -->
-    <!-- <link rel="stylesheet" href="milligram-1.1.0/dist/milligram.min.css"> -->
-
-    <!-- You should properly set the path from the main file. -->
 
 
   </head>
 
   <body>
-    
+
     <%= yield %>
   </body>
 </html>

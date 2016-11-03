@@ -17,6 +17,11 @@ class SessionForm extends React.Component {
 		this.password="password";
 	}
 
+	startDemo(){
+
+	}
+
+
 	componentDidUpdate() {
 		this.redirectIfLoggedIn();
 	}
@@ -67,14 +72,14 @@ class SessionForm extends React.Component {
 	render() {
 		let guestlogin;
 		if (this.props.formType === "login") {
-		guestlogin = <button className="auth-button guest" onClick={this.handleSubmit}>Guest Login</button>;
+		guestlogin = <button className="guest" onClick={this.handleSubmit}>Guest Login</button>;
 	} else {
 		guestlogin = "";
 	}
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					Welcome to RunR!
+					<span className="auth-span">Welcome to RunnR!</span>
 					<br/>
 					Please {this.props.formType} or {this.navLink()}
 					{this.renderErrors()}
@@ -94,11 +99,16 @@ class SessionForm extends React.Component {
 								className="login-input" />
 						</label>
 						<br/>
-						<input type="submit" value="Submit" />
-					</div>
+
+						</div>
+						<div className="login-buttons">
+							<input className="login-button" type="submit" value="Submit" />
+							{guestlogin}
+						</div>
+
 				</form>
 				<br/>
-				{guestlogin}
+
 			</div>
 		);
 	}

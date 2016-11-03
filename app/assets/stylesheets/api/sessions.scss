@@ -1,14 +1,57 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-login-form-container{
-  background-color: white;
-  border: 1px black;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.login-form-container{
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+   display: flex;
+   background-color: white;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   border-style: solid;
+   border: 20px solid rgba(0, 0, 0, 0.3);
+   border-radius: 5px;
+   background-clip: padding-box;
+ }
 
-  margin: auto;
+ .login-buttons{
+   display:flex;
+   justify-content: space-between;
+ }
+
+.login-button{
+  background-color: #39CCCC;
+  border: none;
+  width: 100px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.guest{
+  background-color: #39CCCC;
+  border: none;
+  width: 100px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.guest:hover{
+  background-color: #7FDBFF;
+  cursor: pointer;
+}
+
+.login-button:hover{
+  background-color: #7FDBFF;
+  cursor: pointer;
+}
+
+.auth-span{
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+
+.login-signup{
+  background-color: gray;
 }

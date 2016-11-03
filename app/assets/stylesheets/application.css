@@ -22,6 +22,13 @@
    align-items: center;
  }
 
+ /*login-form-container{
+   display: flex;
+   background-color: white;
+   align-items: center;
+   justify-content: center;
+ }*/
+
  button{
    cursor: pointer;
    background-color: #cccccc;
@@ -42,25 +49,33 @@
 
  }
 
- .cf:after {
-   content: "";
-   display: block;
-   clear: both;
- }
-
  nav {
    height: 70px;
    color: #686868;
    vertical-align: middle;
+   text-align: right;
    font-family: 'Roboto Condensed', sans-serif;
    font-size: 16px;
    position:relative;
+
  }
 
  .big {
    font-size: 50px;
    font-weight: 300;
 
+ }
+
+ .map{
+   width: 500px;
+   height: 500px;
+ }
+
+ .header-group{
+   background-color: white;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
  }
 
  nav li {
@@ -82,8 +97,21 @@
    font-weight: 400;
    font-size: 26px;
    text-transform: uppercase;
-
+   text-align: center;
  }
+
+div login-form-container{
+  background-color: white;
+  align-items: center;
+  border: 1px black;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
 
  nav h1 {
    font-family: 'Open Sans', sans-serif;
@@ -91,6 +119,7 @@
    float: left;
    color: #0083d5;
    padding: 20px;
+   text-align: center;
  }
 
 
@@ -209,6 +238,7 @@
    padding: 21px 10px;
    display: inline-block;
    text-transform: uppercase;;
+   text-align: center;
  }
 
 
@@ -281,7 +311,7 @@
  }
 
 
- .guest {
+ /*.guest {
    background-color: #0083d5;
    border: none;
    color: white;
@@ -290,7 +320,7 @@
  .guest:hover {
    background-color: #006eb3;
    cursor: pointer;
- }
+ }*/
 
  .bottom-info {
    line-height: 1.5;
@@ -327,15 +357,6 @@
    width: 60px;
    height: 20px;
    line-height: 14px;
- }
-
- .dash-header {
-   margin: 20px;
- }
-
- .map {
-   width: 500px;
-   height: 400px;
-   display: inline-block;
-   float: left;
+   background-color: #ffaf1a;
+   background-color: #e70000;
  }
