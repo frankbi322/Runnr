@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import {login,signup,logout} from './actions/session_actions';
-
+import {createRoute} from './util/route_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+  window.store = store;
+  window.createRoute = createRoute;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });

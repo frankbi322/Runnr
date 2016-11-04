@@ -7,11 +7,13 @@ export const fetchAllRoutes = (success) => {
 };
 
 export const createRoute = (route,success)=> {
+  debugger;
   $.ajax ({
     method: "POST",
     url: "/api/routes",
     data: route,
-    success
+    success,
+    error: (e) => console.log(e)
   });
 };
 

@@ -7,6 +7,7 @@ class AppMap extends React.Component {
 
     this.state = {
       coords: [],
+      waypoints: [],
       totalDistance: 0,
       name: "",
       description: "",
@@ -27,32 +28,24 @@ class AppMap extends React.Component {
   }
 
   componentDidMount() {
-    this.waypts = [];
-    this.ways = [];
+    this.waypoints = [];
     this.prev = null;
     this.current = null;
 
     this.initialize();
 
-    // let $directions = document.getElementById('map-container-span');
-    //
-    // window.onmousemove = (event) => {
-    //   let x = event.clientX;
-    //   let y = event.clientY;
-    //
-    //   $directions.style.top = (y + 20) + 'px';
-    //   $directions.style.left = (x + 20) + 'px';
-    // };
   }
 
   placeMarker(position, map) {
     let marker = new google.maps.Marker({
       position: position,
-      draggable: true,
+      // draggable: true,
       map: map
     });
-    this.state.coords.concat(position);
-    this.waypts.push(marker);
+
+
+
+
   }
 
   makeRoute(coords, map) {
@@ -65,6 +58,12 @@ class AppMap extends React.Component {
       });
 
       path.setMap(map);
+      let polyLengthInMeters = google.maps.geometry.spherical.computeLength(path.getPath().getArray());
+
+      this.setState({polyline: path});
+      if (this.state.coords.length>1) {
+        this.calculateDistance(polyLengthInMeters);
+    }
   }
 
   initialize() {
@@ -78,47 +77,36 @@ class AppMap extends React.Component {
 
     this.map = new google.maps.Map(mapDOMNode,mapOptions);
 
-
+    let that=this;
     this.map.addListener('click',(e) => {
       this.placeMarker(e.latLng,this.map);
+      const lat = e.latLng.lat();
+      const lng = e.latLng.lng();
+      const newCoord = {lat,lng};
+      debugger;
+      that.setState({coords: that.state.coords.concat([newCoord])});
+      console.log(that.state.coords);
+      // console.log(this.waypoints);
+      this.makeRoute(this.state.coords,this.map);
+      // this.calculateDistance();
     });
+
+
+
+    // this.map.addListener('rightclick',(e) => {
+    //   this.setState({waypoints:this.waypoints.splice(-1)});
+    //   this.makeRoute(this.state.coords,this.map);
+    // });
+
+
   }
 
-  calculateDistance() {
-    if (this.prev) {
-      const origin = this.prev.split(", ");
-      const destination = this.current.split(", ");
-      const originLatLng = new google.maps.LatLng(
-        parseFloat(origin[0]),
-        parseFloat(origin[1])
-      );
-      const destinationLatLng = new google.maps.LatLng(
-        parseFloat(destination[0]),
-        parseFloat(destination[1])
-      );
+  calculateDistance(meters){
+    let distance = meters / 1609.34;
 
-      let service = new google.maps.DistanceMatrixService();
-
-      const thisMap = this;
-
-      const callback = (response, status) => {
-        let distance;
-        if (status === 'OK') {
-          distance = response.rows[0].elements[0].distance.value / 1609.34;
-        } else {
-          distance = 0;
-        }
-        thisMap.setState({totalDistance: thisMap.state.totalDistance + distance});
-      };
-
-      service.getDistanceMatrix({
-        origins: [originLatLng],
-        destinations: [destinationLatLng],
-        travelMode: 'DRIVING',
-        unitSystem: google.maps.UnitSystem.IMPERIAL
-      }, callback);
-    }
-  }
+  console.log(distance);
+  this.setState({totalDistance:distance});
+}
 
   handleSubmit(event) {
     event.preventDefault();
@@ -131,6 +119,7 @@ class AppMap extends React.Component {
       polyline: this.state.polyline
     };
 
+    debugger;
     this.props.createRoute({route});
     this.props.router.push('/');
   }
@@ -182,7 +171,7 @@ class AppMap extends React.Component {
                 onChange={this.update("description")}></textarea>
             </label>
             <div>
-              <button className="create-route-form">
+              <button className="">
                 Create Route
               </button>
               <button className="clear-points" onClick={this.clearPoints}>
