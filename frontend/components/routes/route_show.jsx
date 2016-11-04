@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import RouteDetail from './route_detail';
-import RouteMap from '../map';
+import RouteMap from '../index_map/index_map';
 
 
 const RouteShow = ({ route, routeId, requestSingleRoute, children }) => {

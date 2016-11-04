@@ -1,0 +1,125 @@
+.border {
+  width: 100%;
+  height: 3px;
+  background: #ccc;
+}
+
+.map-data-container {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: auto;
+  width: 100;
+
+  #map-container {
+    width: 75%;
+    height: 700px;
+    margin: 0 auto;
+  }
+
+  #map-container-span {
+    display: none;
+  }
+
+  #map-container-span-unrender {
+    display: none;
+  }
+
+  #map-container:hover {
+    cursor: pointer;
+  }
+
+  #map-container:hover ~ #map-container-span {
+    display: block;
+    position: fixed;
+    overflow: hidden;
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+
+  .route-details {
+    width: 25%;
+    border-right: 3px solid #ccc;
+    box-sizing: border-box;
+
+    .route-form {
+      border-bottom: 3px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+
+      .name-label {
+        font-size: 24px;
+        margin: 5% 5% 2% 5%;
+
+        input {
+          font-size: 16px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          padding: 5px;
+          width: 90%;
+        }
+      }
+
+      .description-label {
+        font-size: 20px;
+        margin: 2% 5%;
+
+        textarea {
+          font-size: 12px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          padding: 5px;
+          width: 90%;
+          height: 150px;
+        }
+      }
+
+      .create-route-form {
+        margin: 0 0 0 5%;
+        text-align: center;
+        display: inline-block;
+        width: 40%;
+        font-size: 20px;
+        background: white;
+        color: #fff;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        padding: 5px;
+        margin-bottom: 5%;
+      }
+
+      .clear-points {
+        margin: 0 0 0 5%;
+        text-align: center;
+        display: inline-block;
+        width: 40%;
+        font-size: 20px;
+        background: gray;
+        color: #fff;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        padding: 5px;
+        margin-bottom: 5%;
+      }
+
+    }
+
+    .distance-label {
+      display: inline-block;
+      font-size: 20px;
+      margin: 5% 5% 0 5%;
+    }
+
+    .distance {
+      margin: 2% 5%;
+      span {
+        margin-left: 30%;
+        font-size: 48px;
+        color: #000;
+      }
+    }
+
+  }
+}

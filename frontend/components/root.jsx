@@ -7,9 +7,9 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 // react components
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
-import RouteFormContainer from './routes/route_form_container';
+import CreateFormContainer from './route_form/create_form_container';
 import RouteShowContainer from './routes/route_show_container';
-import RoutesIndexContainer from './routes/routes_index_container';
+import SearchContainer from './search/search_container';
 
 const Root = ({ store }) => {
 
@@ -31,10 +31,10 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-
+          <IndexRoute component={SearchContainer} />
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          <Route path="/routes/new" component={RouteFormContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/routes/new" component={CreateFormContainer} onEnter={_ensureLoggedIn} />
           <Route path="/routes/:routeId" component={RouteShowContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
@@ -43,5 +43,3 @@ const Root = ({ store }) => {
 };
 
 export default Root;
-
-          // <IndexRoute component={RoutesIndexContainer} />

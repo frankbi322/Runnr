@@ -66,10 +66,46 @@
 
  }
 
- .map{
+ .static-map{
    width: 500px;
    height: 500px;
+   float: left;
+   position: relative;
+   border-style: solid;
+   border-width: 1px;
  }
+
+ /*.map-data-container{
+   display: flex;
+   flex-direction: row-reverse;
+   margin: auto;
+   width: 100;
+
+   #map-container {
+     width: 75%;
+     heigh: 700px;
+     margin: 0 auto;
+   }
+
+   .route-details{
+     width: 25%auto;border-right: 3px;
+     box-sizing: border-box;
+
+     .route-form{
+       display: flex;
+       flex-direction: column;
+       background-color: white;
+
+       .create-route-form{
+         text-align: center;
+         display: inline-block;
+
+       }
+     }
+   }
+ }*/
+
+
 
  .header-group{
    background-color: white;

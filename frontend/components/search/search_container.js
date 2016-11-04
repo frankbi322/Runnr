@@ -1,12 +1,11 @@
 
 import { connect } from 'react-redux';
 import {asArray} from '../../reducers/selectors';
-import RoutesIndex from './routes_index';
+import Search from './search';
 import { requestRoutes, requestSingleRoute } from '../../actions/route_actions';
 
 const mapStateToProps = state => ({
-  routes: asArray(state),
-  currentUser: state.session.currentUser,
+  routes: asArray(state)
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -17,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RoutesIndex);
+)(Search);
