@@ -2,12 +2,19 @@ class Api::RoutesController < ApplicationController
 
   def index
     @routes = Route.all
-    rendre "api/routes/index"
+    render "api/routes/index"
   end
 
   def create
-    @route = Route.new(route_params)
     debugger;
+    @route = Route.new(
+      name: params[:route][:name],
+      description: params[:route][:description],
+      author_id: params[:route][:author_id],
+      distance: params[:route][:distance],
+      coordinates: params[:route][:coordinates],
+      polyline: params[:route][:polyline]
+)
     if @route.save
       render "api/routes/show"
     else
@@ -27,7 +34,7 @@ class Api::RoutesController < ApplicationController
 
   def route_params
     params.require(:route).permit(
-      :name,:description,:author_id,:distance,:coordinates
+      :name, :description, :author_id, :distance, :polyline, :coordinates => []
     )
   end
 

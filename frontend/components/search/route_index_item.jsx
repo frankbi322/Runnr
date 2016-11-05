@@ -16,9 +16,13 @@ class RouteIndexItem extends React.Component {
   render(){
     const {name} = this.props.route;
     return (
-      <div onClick={this.handleClick}>
+      <div className="item-container" onClick={this.handleClick}>
         <div>
           <span>Name</span>
+          <p>{this.props.route.name}
+            <br/>
+            {this.props.route.distance} miles
+          </p>
           <span>{name}</span>
         </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import CircularJSON from 'circular-json';
 
 class AppMap extends React.Component {
   constructor(props) {
@@ -39,13 +40,10 @@ class AppMap extends React.Component {
   placeMarker(position, map) {
     let marker = new google.maps.Marker({
       position: position,
+      geodesic: true,
       // draggable: true,
       map: map
     });
-
-
-
-
   }
 
   makeRoute(coords, map) {
@@ -56,12 +54,13 @@ class AppMap extends React.Component {
         strokeOpacity: 1.0,
         strokeWeight: 2
       });
-
+      debugger;
       path.setMap(map);
-      let polyLengthInMeters = google.maps.geometry.spherical.computeLength(path.getPath().getArray());
+
 
       this.setState({polyline: path});
-      if (this.state.coords.length>1) {
+      if (this.state.coords.length>=2) {
+        let polyLengthInMeters = google.maps.geometry.spherical.computeLength(path.getPath().getArray());
         this.calculateDistance(polyLengthInMeters);
     }
   }
@@ -83,21 +82,12 @@ class AppMap extends React.Component {
       const lat = e.latLng.lat();
       const lng = e.latLng.lng();
       const newCoord = {lat,lng};
-      debugger;
       that.setState({coords: that.state.coords.concat([newCoord])});
       console.log(that.state.coords);
       // console.log(this.waypoints);
       this.makeRoute(this.state.coords,this.map);
       // this.calculateDistance();
     });
-
-
-
-    // this.map.addListener('rightclick',(e) => {
-    //   this.setState({waypoints:this.waypoints.splice(-1)});
-    //   this.makeRoute(this.state.coords,this.map);
-    // });
-
 
   }
 
@@ -110,13 +100,20 @@ class AppMap extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    let temp = this.state.coords.map(obj => {
+      return Object.keys(obj).map(arg => {
+        return obj[arg];
+      });
+    });
+    let coords = [temp.toString()];
+
     const route = {
       name: this.state.name,
       description: this.state.description,
       author_id: this.props.currentUser.id,
       distance: this.state.totalDistance,
-      coordinates: this.state.coords,
-      polyline: this.state.polyline
+      coordinates: coords,
+      polyline: CircularJSON.stringify(this.state.polyline)
     };
 
     debugger;
@@ -171,13 +168,13 @@ class AppMap extends React.Component {
                 onChange={this.update("description")}></textarea>
             </label>
             <div>
-              <button className="">
+              <button className="route-form-button">
                 Create Route
               </button>
-              <button className="clear-points" onClick={this.clearPoints}>
+              <button className="route-form-button" onClick={this.clearPoints}>
                 Clear Points
               </button>
-              <button onClick={this.returnToIndex}>Cancel</button>
+              <button className="route-form-button" onClick={this.returnToIndex}>Cancel</button>
             </div>
           </form>
           <div className="distance-container">

@@ -13,10 +13,8 @@ const RouteMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case CREATE_ROUTE:
       const createSuccess = data => {
-        debugger;
         dispatch(receiveSingleRoute(data));
       };
-      debugger;
       createRoute(action.route,createSuccess);
       return next(action);
     case REQUEST_SINGLE_ROUTE:

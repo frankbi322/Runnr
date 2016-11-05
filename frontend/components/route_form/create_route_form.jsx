@@ -5,11 +5,6 @@ import {withRouter} from 'react-router';
 class CreateRouteForm extends React.Component {
   constructor(props) {
     super(props);
-    this.returnToIndex=this.returnToIndex.bind(this);
-  }
-
-  returnToIndex(){
-    this.props.router.push('/');
   }
 
   render() {
@@ -19,7 +14,6 @@ class CreateRouteForm extends React.Component {
         <AppMap
           currentUser={this.props.currentUser}
           createRoute={this.props.createRoute} />
-        <button onClick={this.returnToIndex}>Cancel</button>
       </div>
     );
   }
