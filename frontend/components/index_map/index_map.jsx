@@ -13,7 +13,7 @@ let _mapOptions = {
   zoom: 13
 };
 
-class RouteMap extends React.Component {
+class IndexMap extends React.Component {
 
   componentDidMount() {
     const map = this.refs.map;
@@ -54,15 +54,11 @@ class RouteMap extends React.Component {
     this.props.router.push(`routes/${route.id}`);
   }
 
-  _handleClick() {
-    this.props.router.push({
-      pathname: "routes/new"
-    });
-  }
+
 
   render() {
     return <div className="static-map" ref="map">Map</div>;
   }
 }
 
-export default withRouter(RouteMap);
+export default withRouter(IndexMap);

@@ -22,7 +22,7 @@ class AppMap extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
-    this.navigateToIndex = this.navigateToIndex.bind(this);
+    this.returnToIndex = this.returnToIndex.bind(this);
     this.clearPoints = this.clearPoints.bind(this);
 
     this._destroyDirections = this._destroyDirections.bind(this);
@@ -54,7 +54,6 @@ class AppMap extends React.Component {
         strokeOpacity: 1.0,
         strokeWeight: 2
       });
-      debugger;
       path.setMap(map);
 
 
@@ -116,7 +115,6 @@ class AppMap extends React.Component {
       polyline: CircularJSON.stringify(this.state.polyline)
     };
 
-    debugger;
     this.props.createRoute({route});
     this.props.router.push('/');
   }
@@ -125,7 +123,7 @@ class AppMap extends React.Component {
     return event => this.setState({[property]: event.target.value});
   }
 
-  navigateToIndex() {
+  returnToIndex() {
     this.props.router.push("/");
   }
 

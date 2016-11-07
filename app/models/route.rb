@@ -4,9 +4,14 @@ class Route < ApplicationRecord
 
 
   belongs_to :author,
-  primary_key: :id,
-  foreign_key: :author_id,
-  class_name: :User
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :User
+
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :route_id,
+    class_name: :Comment
 
 
 end

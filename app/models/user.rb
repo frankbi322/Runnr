@@ -9,7 +9,20 @@ class User < ApplicationRecord
 	after_initialize :ensure_session_token
 	before_validation :ensure_session_token_uniqueness
 
-  has_many :routes
+  has_many :created_routes,
+    class_name: "Route",
+    foreign_key: :author_id,
+    primary_key: :id
+
+  has_many :following,
+  through: :follows,
+  source: :followee
+
+  has_many :follows,
+  through: :followed,
+  source: :follower
+
+  has_many :comments
 
 	def password=(password)
 		self.password_digest = BCrypt::Password.create(password)

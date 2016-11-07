@@ -14,15 +14,24 @@ class RouteIndexItem extends React.Component {
   }
 
   render(){
-    const {name} = this.props.route;
+    let coordsParam = "";
+    this.props.route.coordinates.forEach( (coord) => {
+      coordsParam = coordsParam + "|" + coord;
+    });
+
+
+
+
     return (
-      <div className="item-container" onClick={this.handleClick}>
+      <div className="route-index-item" onClick={this.handleClick}>
         <div>
-          <span>Name</span>
-          <p>{this.props.route.name}
+          <div>{this.props.route.name}
             <br/>
-            {this.props.route.distance} miles
-          </p>
+            <div className="distance_box">
+              <h4>Distance: </h4>
+              {this.props.route.distance.toFixed(2)} miles
+            </div>
+          </div>
           <span>{name}</span>
         </div>
 
@@ -32,3 +41,7 @@ class RouteIndexItem extends React.Component {
 }
 
 export default RouteIndexItem;
+
+// const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?size=500x500
+// &key=AIzaSyApIfSmh05sKYDsD506WRgLPeQihGFVLyI
+// &path=color:red|enc:${this.props.route.polyline}`;

@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 
 
 
-const RouteReducer = (state = {}, action) => {
+const RoutesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_ROUTES:
@@ -16,4 +16,4 @@ const RouteReducer = (state = {}, action) => {
   }
 };
 
-export default RouteReducer;
+export default RoutesReducer;

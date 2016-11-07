@@ -6,7 +6,7 @@ class Api::RoutesController < ApplicationController
   end
 
   def create
-    debugger;
+    
     @route = Route.new(
       name: params[:route][:name],
       description: params[:route][:description],
