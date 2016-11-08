@@ -1,9 +1,7 @@
 import React from 'react';
-import UserProfile from './profile';
+import UserProfile from './user_profile';
 
-
-
-class ProfileIndex extends React.Component {
+class FindFriends extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,6 +63,6 @@ class ProfileIndex extends React.Component {
         </div>
       );
   }
-
 }
-export default ProfileIndex;
+
+export default FindFriends;

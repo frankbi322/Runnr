@@ -18,7 +18,6 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const routeId = parseInt(this.props.params.routeId);
-    debugger;
     const authorId = this.props.currentUser.id;
     const comment = Object.assign({},this.state,{
       route_id: routeId,
@@ -48,7 +47,7 @@ class CommentForm extends React.Component {
             value={this.state.body}
             onChange={this.update("body")}></textarea>
           <br/>
-          <input type="submit" value="Leave Comment"></input>
+          <input className="button" type="submit" value="Leave Comment"></input>
         </form>
         <button onClick={this.returnToRoute}>Cancel</button>
       </div>

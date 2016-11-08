@@ -5,7 +5,7 @@ import {REQUEST_ROUTES,CREATE_ROUTE,REQUEST_SINGLE_ROUTE,receiveRoutes,receiveSi
 import { fetchAllRoutes, createRoute, fetchSingleRoute } from '../util/route_api_util';
 
 const RouteMiddleware = ({getState, dispatch}) => next => action => {
-
+  console.log(action.type);
   switch(action.type){
     case REQUEST_ROUTES:
       const success = (data) =>dispatch(receiveRoutes(data));
@@ -18,8 +18,12 @@ const RouteMiddleware = ({getState, dispatch}) => next => action => {
       createRoute(action.route,createSuccess);
       return next(action);
     case REQUEST_SINGLE_ROUTE:
-      const fetchSuccess = data => dispatch(receiveSingleRoute(data));
-      fetchSingleRoute(action.id, fetchSuccess);
+      const fetchSuccess = data => {
+        console.log(data);
+        dispatch(receiveSingleRoute(data));
+      };
+
+      fetchSingleRoute(action.id, fetchSuccess, ()=>console.log("error"));
     default:
       return next(action);
   }

@@ -2,6 +2,11 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import CircularJSON from 'circular-json';
 
+const mapOptions = {
+  center: {lat: 37.7758, lng: -122.435},
+  zoom: 14
+};
+
 class AppMap extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +17,6 @@ class AppMap extends React.Component {
       totalDistance: 0,
       name: "",
       description: "",
-      polyline: ""
     };
 
     this.placeMarker = this.placeMarker.bind(this);
@@ -29,7 +33,7 @@ class AppMap extends React.Component {
   }
 
   componentDidMount() {
-    this.waypoints = [];
+    this.markers = [];
     this.prev = null;
     this.current = null;
 
@@ -44,6 +48,7 @@ class AppMap extends React.Component {
       // draggable: true,
       map: map
     });
+    this.markers.push(marker);
   }
 
   makeRoute(coords, map) {
@@ -56,7 +61,6 @@ class AppMap extends React.Component {
       });
       path.setMap(map);
 
-
       this.setState({polyline: path});
       if (this.state.coords.length>=2) {
         let polyLengthInMeters = google.maps.geometry.spherical.computeLength(path.getPath().getArray());
@@ -68,10 +72,7 @@ class AppMap extends React.Component {
     const geocoder = new google.maps.Geocoder();
     const mapDOMNode = this.refs.map;
 
-    const mapOptions = {
-      center: {lat: 37.7758, lng: -122.435},
-      zoom: 14
-    };
+
 
     this.map = new google.maps.Map(mapDOMNode,mapOptions);
 
@@ -106,13 +107,29 @@ class AppMap extends React.Component {
     });
     let coords = [temp.toString()];
 
+    let staticMapUrl = "https://maps.googleapis.com/maps/api/staticmap";
+    // staticMapUrl +="?center="+mapOptions.G + "," + mapOptions.center.K;
+    staticMapUrl += "?size=500x500";
+    staticMapUrl += "&key=AIzaSyApIfSmh05sKYDsD506WRgLPeQihGFVLyI";
+    // staticMapUrl += mapOptions.zoom;
+    for (var i = 0; i < this.state.coords.length; i++) {
+      staticMapUrl += "&markers=color:red|" + this.state.coords[i].lat.toString() + "," + this.state.coords[i].lng.toString();
+    }
+    staticMapUrl += "&path=";
+    for (var i = 0; i < this.state.coords.length; i++) {
+      staticMapUrl += this.state.coords[i].lat.toString() + "," + this.state.coords[i].lng.toString() + '|';
+    }
+    let mapUrl = staticMapUrl.slice(0,-1);
+
+
+
     const route = {
       name: this.state.name,
       description: this.state.description,
       author_id: this.props.currentUser.id,
       distance: this.state.totalDistance,
       coordinates: coords,
-      polyline: CircularJSON.stringify(this.state.polyline)
+      map_url: mapUrl
     };
 
     this.props.createRoute({route});
@@ -129,11 +146,6 @@ class AppMap extends React.Component {
 
   clearPoints(event) {
     event.preventDefault();
-
-    this.waypts = [];
-    this.ways = [];
-    this.prev = null;
-    this.current = null;
 
     this.setState({totalDistance: 0, coords: []});
     this.initialize();

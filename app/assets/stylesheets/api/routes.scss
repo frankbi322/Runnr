@@ -2,10 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.dashboard{
+  display: flex;
+  justify-content: center;
+}
+
+.routes-index {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: flex-end;
+
+  .item-container {
+    width: 300px;
+    height: 100px;
+    margin:10px;
+    position: relative;
+    cursor: pointer;
+
+    .index-img{
+      height: 100px;
+      width: 100px;
+    }
+  }
+}
+
 .distance_box {
   text-align: center;
   width: 110px;
   margin-right: 20px;
+  margin-left: 10px;
   padding: 20px 0;
   border: 1px solid black;
 }
@@ -14,4 +40,38 @@
   display: flex;
   background-color: white;
   justify-content: space-around;
+}
+
+.route-index-item-details {
+  position: absolute;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 5px;
+}
+
+.route-index-item{
+display: flex;
+margin-bottom: 5px;
+margin-right: 25px;
+border: 1px solid black;
+justify-content: space-around;
+}
+
+.detail-map{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+}
+
+.map-detail-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 500px;
+  height: 500px;
+  margin: 10px;
+  background-color: white;
 }

@@ -5,7 +5,7 @@ import Search from './search';
 import { requestRoutes, requestSingleRoute } from '../../actions/route_actions';
 
 const mapStateToProps = state => ({
-  routes: state.routes
+  routes: asArray(state)
 });
 
 const mapDispatchToProps = dispatch => ({

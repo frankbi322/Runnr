@@ -23,8 +23,9 @@ class RouteIndexItem extends React.Component {
 
 
     return (
-      <div className="route-index-item" onClick={this.handleClick}>
+      <div className="item-container" onClick={this.handleClick}>
         <div>
+          <img className="index-img" src={this.props.route.map_url}/>
           <div>{this.props.route.name}
             <br/>
             <div className="distance_box">
@@ -32,7 +33,10 @@ class RouteIndexItem extends React.Component {
               {this.props.route.distance.toFixed(2)} miles
             </div>
           </div>
-          <span>{name}</span>
+          <div className="route-index-item-details">
+            {name}
+            Created By: {this.props.route.author_name}
+          </div>
         </div>
 
       </div>

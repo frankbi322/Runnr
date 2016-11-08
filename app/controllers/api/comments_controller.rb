@@ -1,5 +1,10 @@
 class Api::CommentsController < ApplicationController
 
+  def index
+    @comments = Comment.all
+    render "api/routes/index/"
+  end
+
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
@@ -9,7 +14,6 @@ class Api::CommentsController < ApplicationController
       render json: @comment.errors.full_messages, status: 422
     end
   end
-
 
 
   def comment_params

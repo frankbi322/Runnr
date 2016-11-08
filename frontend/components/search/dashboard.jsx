@@ -1,4 +1,5 @@
 import React from 'react';
+import ModuleNavigator from '../nav/module_nav';
 import RoutesIndex from './routes_index';
 import RouteMap from '../index_map/index_map';
 
@@ -28,12 +29,17 @@ class Dashboard extends React.Component {
 
   render() {
     return (
+      <div>
+        <ModuleNavigator path="/dashboard"/>
       <div className="dashboard">
+        
       <div className="left-half">
         <RouteMap/>
         </div>
         <div className="right-half">
+          <h3>My Routes</h3>
         <RoutesIndex routes={this.state.routes} requestSingleRoute={this.props.requestSingleRoute}/>
+      </div>
       </div>
       </div>
     );

@@ -7,6 +7,8 @@
     json.author_name "#{route.author.username}"
     json.distance route.distance
     json.coordinates route.coordinates
+    json.comments route.comments
+    json.map_url route.map_url
 
   end
 end

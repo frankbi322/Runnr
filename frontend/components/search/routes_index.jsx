@@ -5,8 +5,7 @@ import {Link} from 'react-router';
 
 
 const RoutesIndex = ({routes}) => (
-  <div className="item-container">
-    <h1>Routes:</h1>
+  <div className="routes-index">
     {routes.map(route => (
       <RouteIndexItem route={route} key={route.id}/>
     ))}

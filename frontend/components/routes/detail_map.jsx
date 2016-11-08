@@ -55,10 +55,14 @@ class DetailMap extends React.Component {
 
     this.props.route.coordinates.forEach( coord => {
       for (let i = 0; i < coord.length - 2; i+=2) {
-      let lat = parseFloat(coord.split(",")[i]);
-      let lng = parseFloat(coord.split(",")[i+1]);
-      let latlng = new google.maps.LatLng(lat,lng);
-      coords.concat([{latlng}]);
+      let coordlat = parseFloat(coord.split(",")[i]);
+      let coordlng = parseFloat(coord.split(",")[i+1]);
+      let latlng = new google.maps.LatLng(coordlat,coordlng);
+      let lat = latlng.lat();
+      let lng = latlng.lng();
+      let newCoord = {lat,lng};
+
+      coords.concat([newCoord]);
       this.placeMarker(latlng,this.map);
       this.makeRoute(coords,this.map);
     }
@@ -67,7 +71,7 @@ class DetailMap extends React.Component {
 
   render() {
     return (
-      <div className="static-map" ref="detail_map">Map</div>
+      <div className="detail-map" ref="detail_map">Map</div>
     );
   }
 }

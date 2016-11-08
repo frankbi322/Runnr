@@ -12,7 +12,12 @@ import RouteDetailContainer from './routes/route_detail_container';
 import SearchContainer from './search/search_container';
 import DashboardContainer from './search/dashboard_container';
 import CommentFormContainer from './routes/comment_form_container';
+import ProfileContainer from './profile/profile_container';
+import FriendsContainer from './friends/friends_container';
+import FindFriendsContainer from './find_friends/find_friends_container';
+
 import {requestRoutes} from '../actions/route_actions';
+import {requestOtherUsers} from '../actions/user_actions';
 
 const Root = ({ store }) => {
 
@@ -35,6 +40,10 @@ const Root = ({ store }) => {
     store.dispatch(requestRoutes());
   };
 
+  const _getUsers = (nextState,replace) => {
+    _ensureLoggedIn(nextState,replace);
+    store.dispatch(requestOtherUsers());
+  };
 
   return (
     <Provider store={store}>
@@ -44,10 +53,13 @@ const Root = ({ store }) => {
           <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+          <Route path="/routes" component={SearchContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/routes/new" component={CreateFormContainer} onEnter={_ensureLoggedIn} />
           <Route path="/routes/:routeId" component={RouteDetailContainer} onEnter={_getAllRoutes}>
             <Route path="comment" component={CommentFormContainer} onEnter={_ensureLoggedIn}></Route>
           </Route>
+          <Route path="/find_friends" component={FindFriendsContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/friends" component={FriendsContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>

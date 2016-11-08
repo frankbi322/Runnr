@@ -1,8 +1,7 @@
-import {connect} from 'react-redux';
-import {deleteFollow,createFollow} from '../../actions/follow_actions';
-import ProfileIndex from './profile_index';
+import { connect } from 'react-redux';
+import FindFriends from './find_friends';
+import { deleteFollow, createFollow } from '../../actions/follow_actions';
 import {requestOtherUsers} from '../../actions/user_actions';
-
 
 const mapStateToProps = state => ({
   friends: state.friends,
@@ -11,12 +10,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createFollow: (follow) => dispatch(createFollow(follow)),
   deleteFollow: (follow) => dispatch(deleteFollow(follow)),
+  createFollow: (follow) => dispatch(createFollow(follow)),
   requestOtherUsers: () => dispatch(requestOtherUsers())
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileIndex);
+)(FindFriends);

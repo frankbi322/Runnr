@@ -8,7 +8,6 @@ class CommentsList extends React.Component {
   }
 
   render() {
-    debugger;
     const commentsList = this.props.comments.map((comment,index) => {
       return <CommentsListItem key={comment.id} comment={comment} />;
     });

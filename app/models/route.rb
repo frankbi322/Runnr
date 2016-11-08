@@ -1,6 +1,6 @@
 class Route < ApplicationRecord
 
-  validates :name, :description, :author_id, :distance, :coordinates, presence: true
+  validates :name, :description, :author_id, :distance, :coordinates, :map_url, presence: true
 
 
   belongs_to :author,

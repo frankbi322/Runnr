@@ -25,22 +25,20 @@ class RouteDetail extends React.Component {
 
   render() {
     if (Object.keys(this.props.routes).length === 0) {
-      return(<div>Empty</div>);
+      return(<div>Loading</div>);
     }
     const route = this.props.routes[this.props.params.routeId];
-    debugger;
 
-
+    console.log(route);
     return (
       <div>
-        <div>
-          <DetailMap route={route}/>
-        </div>
+
         <br/>
         <div className="route-detail">
+          <img className="image-show"src={route.map_url}/>
           Name: {route.name}
           <br/>
-          Distance: {route.distance}
+          Distance: {route.distance.toFixed(2)} miles
           <br/>
           Created By: {route.author_name}
           <br/>
@@ -50,12 +48,12 @@ class RouteDetail extends React.Component {
           {commentList(route.comments)}
           <br/>
           <CommentButton/>
-
           {this.props.children}
 
           <Link to="/dashboard">Back to Index</Link>
 
         </div>
+
       </div>
     );
   }
@@ -65,3 +63,6 @@ export default RouteDetail;
 
 // <CommentsList comments={this.props.route.comments}/>
 // <CommentFormContainer route={this.props.route}/>
+// <div className="map-container">
+//   <DetailMap route={route}/>
+// </div>
