@@ -4,17 +4,19 @@ export default class MarkerManager {
     this.map = map;
     this.handleClick = handleClick;
     this.markers = [];
-    //permanently bind instance methods
-    this._createMarkerFromRoute = this._createMarkerFromRoute.bind(this);
-    this._removeMarker = this._removeMarker.bind(this);
-    this._markersToRemove = this._markersToRemove.bind(this);
+
+    // this._createMarkerFromRoute = this._createMarkerFromRoute.bind(this);
+    // this._removeMarker = this._removeMarker.bind(this);
+    // this._markersToRemove = this._markersToRemove.bind(this);
   }
 
-  updateMarkers(routes){
-    this.routes = routes;
-    this._routesToAdd().forEach(this._createMarkerFromRoute);
-    this._markersToRemove().forEach(this._removeMarker);
-  }
+  // updateMarkers(routes){
+  //   this.routes = this._routesToArray(routes);
+  //   let routesToCreate = this._routesToAdd();
+  //   routesToCreate.forEach(this._createMarkerFromRoute);
+  //   let routesToRemove = this._markersToRemove();
+  //   routesToRemove.forEach(this._removeMarker);
+  // }
 
   _routesToAdd() {
     const currentRoutes = this.markers.map( marker => marker.routeId );
@@ -22,24 +24,33 @@ export default class MarkerManager {
   }
 
   _markersToRemove(){
-    const routeIds = this.routes.map( route => route.id );
-    return this.markers.filter( marker => !routeIds.includes(marker.routeId) );
+    const currentRoutes = this.routes.map( route => route.id );
+    return this.markers.filter( marker => !currentRoutes.includes(marker.routeId) );
   }
-
-  _createMarkerFromRoute(route) {
-    const pos = new google.maps.LatLng(route.lat, route.lng);
-    const marker = new google.maps.Marker({
-      position: pos,
-      map: this.map,
-      routeId: route.id
-    });
-    marker.addListener('click', () => this.handleClick(route));
-    this.markers.push(marker);
-  }
+  //
+  // _createMarkerFromRoute(routeitem) {
+  //   routeitem.coordinates.forEach( coord => {
+  //     let coordlat = parseFloat(coord.split(",")[0]);
+  //     let coordlng = parseFloat(coord.split(",")[1]);
+  //     let pos = new google.maps.LatLng(coordlat,coordlng);
+  //     const marker = new google.maps.Marker({
+  //       position: pos,
+  //       map: this.map,
+  //       routeId: route.id
+  //     });
+  //     marker.addListener('click', () => this.handleClick(route));
+  //     this.markers.push(marker);
+  //   });
+  // }
 
   _removeMarker(marker) {
     const idx = this.markers.indexOf( marker );
     this.markers[idx].setMap(null);
     this.markers.splice(idx, 1);
+  }
+
+  _routesToArray(routes) {
+    if (!routes) {return []};
+    return Object.keys(routes).map(key => routes[key]);
   }
 }

@@ -8,7 +8,7 @@ import CommentFormContainer from './comment_form_container';
 
 const commentList = (comments=[]) => (
   comments.map(comment => (
-    <CommentShow body={comment.body} key={comment.id}/>
+    <CommentShow  author_name={comment.author_name} body={comment.body} key={comment.id}/>
   ))
 );
 
@@ -28,33 +28,28 @@ class RouteDetail extends React.Component {
       return(<div>Loading</div>);
     }
     const route = this.props.routes[this.props.params.routeId];
+    // debugger;
 
-    console.log(route);
     return (
-      <div>
-
-        <br/>
         <div className="route-detail">
-          <img className="image-show"src={route.map_url}/>
-          Name: {route.name}
-          <br/>
-          Distance: {route.distance.toFixed(2)} miles
-          <br/>
-          Created By: {route.author_name}
-          <br/>
-          Description: {route.description}
-          <br/>
-          Comments:
-          {commentList(route.comments)}
-          <br/>
-          <CommentButton/>
-          {this.props.children}
+          <img className="static-map"src={route.map_url}/>
+          <div className="route-info-container">
+            <h3>Name: {route.name}</h3>
+            <h4>Distance: {route.distance.toFixed(2)} miles</h4>
+            <h4>Created By: {route.author_name}</h4>
+            Description: {route.description}
+            <br/>
+            Comments:
+            {commentList(route.comments)}
 
-          <Link to="/dashboard">Back to Index</Link>
+            <br/>
+            <CommentButton/>
+            {this.props.children}
 
+            <Link to="/dashboard">Back to Index</Link>
+        </div>
         </div>
 
-      </div>
     );
   }
 }
@@ -66,3 +61,5 @@ export default RouteDetail;
 // <div className="map-container">
 //   <DetailMap route={route}/>
 // </div>
+//
+// <CommentsList route={route}/>

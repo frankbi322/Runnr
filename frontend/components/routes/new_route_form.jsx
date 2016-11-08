@@ -11,8 +11,9 @@ class RouteForm extends React.Component{
     this.returnToIndex=this.returnToIndex.bind(this);
   }
 
-  returnToIndex(){
-    this.props.router.push("/");
+  returnToIndex(e){
+    e.preventDefault();
+    this.props.router.push("/dashboard");
   }
 
   update(field) {
@@ -39,10 +40,11 @@ class RouteForm extends React.Component{
           <input type="text" value={name} onChange={this.update("name")}/>
           <input type="submit" value="Create Route!"/>
         </form>
-          <button onClick={this.returnToIndex}>Cancel</button>
+          <Link to="/dashboard">Cancel</Link>
       </div>
     );
   }
 }
 
 export default withRouter(RouteForm);
+// <button onClick={this.returnToIndex}>Cancel</button>

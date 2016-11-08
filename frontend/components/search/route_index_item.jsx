@@ -24,28 +24,19 @@ class RouteIndexItem extends React.Component {
 
     return (
       <div className="item-container" onClick={this.handleClick}>
-        <div>
           <img className="index-img" src={this.props.route.map_url}/>
-          <div>{this.props.route.name}
-            <br/>
-            <div className="distance_box">
-              <h4>Distance: </h4>
-              {this.props.route.distance.toFixed(2)} miles
-            </div>
-          </div>
+          <div> {this.props.route.name}</div>
           <div className="route-index-item-details">
-            {name}
+            Name: {name}
             Created By: {this.props.route.author_name}
           </div>
-        </div>
-
+          <div className="distance_box">
+              <h4>Distance: </h4>
+              {this.props.route.distance.toFixed(2)} miles
+          </div>
       </div>
     );
   }
 }
 
 export default RouteIndexItem;
-
-// const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?size=500x500
-// &key=AIzaSyApIfSmh05sKYDsD506WRgLPeQihGFVLyI
-// &path=color:red|enc:${this.props.route.polyline}`;

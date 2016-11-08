@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Comment = ({body}) => (
+const Comment = ({author_name,body}) => (
   <div>
     <ul>
-      <li>{body}</li>
+      <li>{author_name}: {body}</li>
     </ul>
   </div>
 );

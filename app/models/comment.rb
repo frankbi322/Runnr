@@ -12,4 +12,9 @@ class Comment < ApplicationRecord
     foreign_key: :route_id,
     class_name: :Route
 
+  def author_name
+    self.author.username
+  end
+
+
 end

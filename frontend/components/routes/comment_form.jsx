@@ -11,7 +11,8 @@ class CommentForm extends React.Component {
     this.returnToRoute = this.returnToRoute.bind(this);
   }
 
-  returnToRoute() {
+  returnToRoute(e) {
+    e.preventDefault();
     this.props.router.push(`/routes/${this.props.params.routeId}`);
   }
 

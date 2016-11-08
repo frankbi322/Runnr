@@ -8,6 +8,7 @@ import RouteShow from './route_show';
 const mapStateToProps = (state, { params }) => {
   const routeId = parseInt(params.routeId);
   const route = selectRoute(state, routeId);
+  const comments = route.comments;
   return {
     routeId,
     route

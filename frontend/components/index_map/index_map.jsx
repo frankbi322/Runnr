@@ -15,24 +15,27 @@ let _mapOptions = {
 
 class IndexMap extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.handleMarkerClick = this._handleMarkerClick.bind(this);
+  }
+
   componentDidMount() {
+    // debugger;
     const map = this.refs.map;
     this.map = new google.maps.Map(map, _mapOptions);
-    this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
-    if (this.props.singleRoute) {
-      this.props.requestSingleRoute(this.props.routeId);
-    } else {
-      this._registerListeners();
-      this.MarkerManager.updateMarkers(this.props.routes);
-    }
+    // this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
+    // this.MarkerManager.updateMarkers(this.props.routes);
   }
 
   // componentDidUpdate() {
-  //   if(this.props.singleRoute){
-  //     this.MarkerManager.updateMarkers([this.props.routes[Object.keys(this.props.routes)[0]]]); //grabs only that one route
-  //   } else {
-  //     this.MarkerManager.updateMarkers(this.props.routes);
-  //   }
+  //   this.MarkerManager.updateMarkers(this.props.routes)
+
+    // if(this.props.singleRoute){
+    //   this.MarkerManager.updateMarkers([this.props.routes[Object.keys(this.props.routes)[0]]]); //grabs only that one route
+    // } else {
+    //   this.MarkerManager.updateMarkers(this.props.routes);
+    // }
   // }
 
   _registerListeners() {
