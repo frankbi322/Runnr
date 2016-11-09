@@ -7,7 +7,7 @@ class Friends extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestOtherUsers();
+    this.props.requestFriends(this.props.currentUser.id);
   }
 
   render(){
@@ -22,6 +22,8 @@ class Friends extends React.Component {
 
     return (
       <div>
+        <ModuleNavigator path="/friends"/>
+        <h2>Friends</h2>
         <ul>
           {friendsList}
         </ul>

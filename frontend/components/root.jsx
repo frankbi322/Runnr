@@ -60,7 +60,8 @@ const Root = ({ store }) => {
           </Route>
           <Route path="/find_friends" component={FindFriendsContainer} onEnter={_ensureLoggedIn} />
           <Route path="/friends" component={FriendsContainer} onEnter={_ensureLoggedIn} />
-        </Route>
+          <Route path="/profile" component={ProfileContainer} onEnter={_ensureLoggedIn} />
+      </Route>
       </Router>
     </Provider>
   );

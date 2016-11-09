@@ -9,15 +9,15 @@ class UserProfile extends React.Component {
 
   follow() {
     this.props.createFollow({
-      user_id: this.props.currentUser.id,
-      friend_id: this.props.user.id
+      follower_id: this.props.currentUser.id,
+      followee_id: this.props.user.id
     });
   }
 
   unfollow() {
     this.props.deleteFollow({
-      user_id: this.props.currentUser.id,
-      friend_id: this.props.user.id
+      follower_id: this.props.currentUser.id,
+      followee_id: this.props.user.id
     });
   }
 
@@ -38,7 +38,7 @@ class UserProfile extends React.Component {
 
     return (
       <div className="user-item">
-        <span>Username: {this.props.currentUser.username}</span>
+        <span>Username: {this.props.user.username}</span>
         {followButton}
       </div>
     );

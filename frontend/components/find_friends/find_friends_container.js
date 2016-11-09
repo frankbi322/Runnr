@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   deleteFollow: (follow) => dispatch(deleteFollow(follow)),
   createFollow: (follow) => dispatch(createFollow(follow)),
-  requestOtherUsers: (id) => dispatch(requestOtherUsers(id))
+  requestOtherUsers: () => dispatch(requestOtherUsers())
 });
 
 export default connect(

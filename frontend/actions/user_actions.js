@@ -6,7 +6,6 @@ export const receiveOtherUsers = (users) => ({
   users
 });
 
-export const requestOtherUsers = (id) => ({
-  type: REQUEST_OTHER_USERS,
-  id
+export const requestOtherUsers = () => ({
+  type: REQUEST_OTHER_USERS
 });

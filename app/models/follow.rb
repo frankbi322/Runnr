@@ -1,7 +1,9 @@
 class Follow < ApplicationRecord
 
   validates :follower_id, :followee_id, presence: true
-  validates :cannot_friend_self
+  validates_uniqueness_of :follower_id, scope: :followee_id
+
+  validate :cannot_friend_self
 
   belongs_to :follower,
   class_name: :User,

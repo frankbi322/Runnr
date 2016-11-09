@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
 
 	def index
 		@users = User.all
-		render "api/uesrs/index"
+		render "api/users/index"
 	end
 
 

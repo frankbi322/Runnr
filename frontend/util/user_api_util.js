@@ -1,7 +1,7 @@
-export const fetchOtherUsers = (success, id) => {
+export const fetchOtherUsers = (success) => {
   $.ajax ({
     method: "GET",
-    url: `api/${id}/other_users`,
+    url: "/api/users",
     success
   });
 };
@@ -9,8 +9,10 @@ export const fetchOtherUsers = (success, id) => {
 export const fetchFriends = (success, id) => {
   $.ajax ({
     method: "GET",
-    url: `api/${id}/friends`,
+    url: `api/users/${id}/friends`,
     data: id,
     success
   });
 };
+
+// `api/users/${id}/other_users`,

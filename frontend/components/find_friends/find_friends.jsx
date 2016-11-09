@@ -12,10 +12,10 @@ class FindFriends extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestOtherUsers(this.props.currentUser.id);
+    this.props.requestOtherUsers();
   }
 
-  handleInput(e) {
+  handleInput(event) {
     this.setState({input: event.currentTarget.value});
   }
 
@@ -24,7 +24,9 @@ class FindFriends extends React.Component {
     for (let userId in this.props.users) {
       let substring = this.props.users[userId].username.slice(0,this.state.input.length);
       if (substring.toLowerCase() === this.state.input.toLowerCase()) {
+        if (this.props.users[userId].username!==this.props.currentUser.username) {
         matches.push(this.props.users[userId]);
+      }
       }
     }
     return matches;
@@ -32,7 +34,6 @@ class FindFriends extends React.Component {
 
   render() {
     let followStatus;
-    console.log(this.props.users);
     let results = this.matches().map((user,index) => {
       if (this.props.friends.hasOwnProperty(user.id)) {
         followStatus = "Following";

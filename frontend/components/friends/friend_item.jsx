@@ -8,8 +8,8 @@ class FriendItem extends React.Component {
 
   unfollow() {
     this.props.deleteFollow({
-      user_id: this.props.currentUser.id,
-      friend_id: this.props.friend.id
+      follower_id: this.props.currentUser.id,
+      followee_id: this.props.friend.id
     });
   }
   render () {

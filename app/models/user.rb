@@ -10,17 +10,23 @@ class User < ApplicationRecord
 	before_validation :ensure_session_token_uniqueness
 
   has_many :created_routes,
-    class_name: "Route",
+    class_name: :Route,
     foreign_key: :author_id,
     primary_key: :id
 
-  has_many :following,
-  through: :follows,
-  source: :followee
+  has_many :followees,
+    through: :follows,
+    source: :user
+
+  has_many :friends,
+    through: :follows,
+    source: :followee
 
   has_many :follows,
-  through: :followed,
-  source: :follower
+    class_name: :Follow,
+    primary_key: :id,
+    foreign_key: :follower_id
+
 
   has_many :comments
 
