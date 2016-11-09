@@ -2,7 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router';
 import RoutesIndex from './routes_index';
 import ModuleNavigator from '../nav/module_nav';
-import RouteMap from '../index_map/index_map';
+import IndexMap from '../index_map/index_map';
 
 
 class Search extends React.Component {
@@ -11,9 +11,9 @@ class Search extends React.Component {
     this.returnToDashboard = this.returnToDashboard.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.props.requestRoutes();
-  // }
+  componentDidMount(){
+    this.props.requestRoutes();
+  }
 
   returnToDashboard(){
     this.props.router.push('/dashboard');
@@ -23,7 +23,7 @@ class Search extends React.Component {
     return (
       <div className="search">
         <ModuleNavigator path="/routes"/>
-        <RouteMap className="static-map" routes={this.props.routes} singleRoute={false}/>
+        <IndexMap className="static-map" routes={this.props.routes} singleRoute={false}/>
         <h2>All Routes</h2>
         <RoutesIndex routes={this.props.routes} requestSingleRoute={this.props.requestSingleRoute}/>
         <button onClick={this.returnToDashboard}>Return to Dashboard</button>

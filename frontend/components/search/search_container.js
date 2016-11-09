@@ -8,9 +8,9 @@ const mapStateToProps = state => {
   // debugger;
   return ({
 
-  // routes: asArray(state)
+  routes: asArray(state)
 
-  routes: state.routes
+  // routes: state.routes
 });
 }
 
