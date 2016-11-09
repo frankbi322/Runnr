@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Dashboard from './dashboard';
-import {requestRoutes,requestSingleRoute} from '../../actions/route_actions';
+import {requestRoutes,requestSingleRoute, updateBounds} from '../../actions/route_actions';
 
 const mapStateToProps = state => ({
   routes: state.routes,
@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestRoutes: () => dispatch(requestRoutes()),
-  requestSingleRoute: (id) => dispatch(requestSingleRoute(id))
+  requestSingleRoute: (id) => dispatch(requestSingleRoute(id)),
+  updateBounds: (bounds) => dispatch(updateBounds(bounds))
 });
 
 export default connect(

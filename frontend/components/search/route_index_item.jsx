@@ -14,10 +14,10 @@ class RouteIndexItem extends React.Component {
   }
 
   render(){
-    let coordsParam = "";
-    this.props.route.coordinates.forEach( (coord) => {
-      coordsParam = coordsParam + "|" + coord;
-    });
+    // let coordsParam = "";
+    // this.props.route.coordinates.forEach( (coord) => {
+    //   coordsParam = coordsParam + "|" + coord;
+    // });
 
 
 

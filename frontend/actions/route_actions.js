@@ -4,6 +4,7 @@ export const REQUEST_ROUTES = "REQUEST_ROUTES";
 export const CREATE_ROUTE = "CREATE_ROUTE";
 export const RECEIVE_SINGLE_ROUTE = "RECEIVE_SINGLE_ROUTE";
 export const REQUEST_SINGLE_ROUTE = "REQUEST_SINGLE_ROUTE";
+export const UPDATE_BOUNDS = "UPDATE_BOUNDS";
 
 export const requestRoutes = () => ({
   type: REQUEST_ROUTES
@@ -32,4 +33,9 @@ export const receiveSingleRoute = (route) => ({
 export const requestSingleRoute = (id) => ({
   type: REQUEST_SINGLE_ROUTE,
   id
+});
+
+export const updateBounds = (bounds) => ({
+  type: UPDATE_BOUNDS,
+  bounds
 });
