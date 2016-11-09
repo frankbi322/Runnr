@@ -9,6 +9,6 @@
     json.coordinates route.coordinates
     json.comments route.comments, partial: 'api/comments/comment', as: :comments
     json.map_url route.map_url
-
+    json.completed route.completed
   end
 end

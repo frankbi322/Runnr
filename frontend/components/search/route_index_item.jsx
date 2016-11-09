@@ -5,12 +5,21 @@ import {hashHistory} from 'react-router';
 class RouteIndexItem extends React.Component {
   constructor(props){
     super(props);
+
+    
+
     this.handleClick=this.handleClick.bind(this);
+    this.handleComplete=this.handleComplete.bind(this);
   }
 
   handleClick(){
     const routeId = this.props.route.id;
     hashHistory.push(`routes/${routeId}`);
+  }
+
+  handleComplete(e){
+    e.preventDefault();
+
   }
 
   render(){
