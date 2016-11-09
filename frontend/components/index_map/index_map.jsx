@@ -24,8 +24,8 @@ class IndexMap extends React.Component {
     // debugger;
     const map = this.refs.map;
     this.map = new google.maps.Map(map, _mapOptions);
-    // this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
-    // this.MarkerManager.updateMarkers(this.props.routes);
+    this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
+    this.MarkerManager.updateMarkers(this.props.routes);
   }
 
   // componentDidUpdate() {

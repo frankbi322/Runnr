@@ -29,7 +29,6 @@ class Dashboard extends React.Component {
 
 
   render() {
-    debugger;
     return (
       <div className="dashboard">
         <ModuleNavigator path="/dashboard"/>

@@ -4,9 +4,15 @@ import {asArray} from '../../reducers/selectors';
 import Search from './search';
 import { requestRoutes, requestSingleRoute } from '../../actions/route_actions';
 
-const mapStateToProps = state => ({
-  routes: asArray(state)
+const mapStateToProps = state => {
+  // debugger;
+  return ({
+
+  // routes: asArray(state)
+
+  routes: state.routes
 });
+}
 
 const mapDispatchToProps = dispatch => ({
   requestRoutes: () => dispatch(requestRoutes()),

@@ -25,7 +25,7 @@ class CommentForm extends React.Component {
       author_id: authorId
     });
     this.props.createComment({comment});
-    this.returnToRoute();
+    this.props.router.push(`/routes/${this.props.params.routeId}`);
   }
 
   update(property) {
