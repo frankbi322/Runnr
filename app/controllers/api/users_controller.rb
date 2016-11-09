@@ -11,6 +11,17 @@ class Api::UsersController < ApplicationController
 		end
 	end
 
+	def index
+		@users = User.all
+		render "api/uesrs/index"
+	end
+
+
+	def other_users
+		@users = User.where.not(id: params[:id])
+		render "api/users/index"
+	end
+
 	private
 
 	def user_params

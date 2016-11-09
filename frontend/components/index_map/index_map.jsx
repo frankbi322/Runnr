@@ -25,18 +25,16 @@ class IndexMap extends React.Component {
     const map = this.refs.map;
     this.map = new google.maps.Map(map, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
-    this.MarkerManager.updateMarkers(this.props.routes);
+    this.MarkerManager.updateMarkers(this.props.maproutes);
+
+    
+
+
   }
 
-  // componentDidUpdate() {
-  //   this.MarkerManager.updateMarkers(this.props.routes)
-
-    // if(this.props.singleRoute){
-    //   this.MarkerManager.updateMarkers([this.props.routes[Object.keys(this.props.routes)[0]]]); //grabs only that one route
-    // } else {
-    //   this.MarkerManager.updateMarkers(this.props.routes);
-    // }
-  // }
+  componentDidUpdate() {
+    this.MarkerManager.updateMarkers(this.props.maproutes);
+  }
 
   _registerListeners() {
     // google.maps.event.addListener(this.map, 'idle', () => {

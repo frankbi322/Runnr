@@ -1,5 +1,6 @@
 import React from 'react';
 import UserProfile from './user_profile';
+import ModuleNavigator from '../nav/module_nav';
 
 class FindFriends extends React.Component {
   constructor(props) {
@@ -11,11 +12,10 @@ class FindFriends extends React.Component {
   }
 
   componentDidMount(){
-    this.props.requestOtherUsers();
+    this.props.requestOtherUsers(this.props.currentUser.id);
   }
 
   handleInput(e) {
-    debugger;
     this.setState({input: event.currentTarget.value});
   }
 
@@ -32,6 +32,7 @@ class FindFriends extends React.Component {
 
   render() {
     let followStatus;
+    console.log(this.props.users);
     let results = this.matches().map((user,index) => {
       if (this.props.friends.hasOwnProperty(user.id)) {
         followStatus = "Following";
@@ -50,13 +51,14 @@ class FindFriends extends React.Component {
 
       return (
         <div>
+          <ModuleNavigator/>
           <span>Add Friends!</span>
           <div method="get">
             <input type="text" placeholder="Find by Username" onChange={this.handleInput}/>
           </div>
           <br/>
           <div>
-            <ul>
+            <ul className="users-list">
               {results}
             </ul>
           </div>

@@ -10,12 +10,12 @@ export default class MarkerManager {
     this._markersToRemove = this._markersToRemove.bind(this);
   }
 
-  updateMarkers(routes){
-    // this.routes = this._routesToArray(routes);
-    // let routesToCreate = this._routesToAdd();
-    // routesToCreate.forEach(this._createMarkerFromRoute);
-    // let routesToRemove = this._markersToRemove();
-    // routesToRemove.forEach(this._removeMarker);
+  updateMarkers(maproutes){
+    this.routes = maproutes;
+    let routesToCreate = this._routesToAdd();
+    routesToCreate.forEach(this._createMarkerFromRoute);
+    let routesToRemove = this._markersToRemove();
+    routesToRemove.forEach(this._removeMarker);
   }
 
   _routesToAdd() {
@@ -36,9 +36,9 @@ export default class MarkerManager {
       const marker = new google.maps.Marker({
         position: pos,
         map: this.map,
-        routeId: route.id
+        routeId: routeitem.id
       });
-      marker.addListener('click', () => this.handleClick(route));
+      marker.addListener('click', () => this.handleClick(routeitem));
       this.markers.push(marker);
     });
   }
@@ -49,8 +49,10 @@ export default class MarkerManager {
     this.markers.splice(idx, 1);
   }
 
-  _routesToArray(routes) {
-    if (!routes) {return []};
-    return Object.keys(routes).map(key => routes[key]);
-  }
+  // _routesToArray(routes) {
+  //   if (!routes) {
+  //     return [];
+  //   }
+  //   return Object.keys(routes).map(key => routes[key]);
+  // }
 }

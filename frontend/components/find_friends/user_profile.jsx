@@ -37,7 +37,7 @@ class UserProfile extends React.Component {
 
 
     return (
-      <div>
+      <div className="user-item">
         <span>Username: {this.props.currentUser.username}</span>
         {followButton}
       </div>

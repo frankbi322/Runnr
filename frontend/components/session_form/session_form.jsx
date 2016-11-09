@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
 	}
 
 	demoLogin(){
-		this.username="guest";
+		this.username="Guest";
 		this.password="password";
 	}
 
@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
 		e.preventDefault();
 		let user;
 		if (e.currentTarget.className.includes("guest")) {
-			user = {username: "guest", password: "password"};
+			user = {username: "Guest", password: "password"};
 		} else {
 		user = this.state;
 		}

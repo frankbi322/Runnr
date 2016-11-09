@@ -18,7 +18,7 @@ class ModuleNavigator extends React.Component {
         </div>
 
         <div className={this.props.path === "/friends" ? "module-selected" : "module-unselected"}>
-          <Link to="/friends">FRIENDS</Link>
+          <Link to="/find_friends">FRIENDS</Link>
         </div>
       </nav>
     );
