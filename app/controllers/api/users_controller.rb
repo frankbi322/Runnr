@@ -16,6 +16,14 @@ class Api::UsersController < ApplicationController
 		render "api/users/index"
 	end
 
+	def update
+		@user = User.find(params[:id])
+		if @user.update_attributes(user_params)
+			render "api/users/show"
+		else
+			render json: @user.errors.full_messages, status: 422
+		end
+	end
 
 	def other_users
 		@users = User.where.not(id: params[:id])
@@ -25,7 +33,7 @@ class Api::UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :password)
+		params.require(:user).permit(:username, :password, :completed_runs, :total_distance)
 	end
 
 end

@@ -39,9 +39,3 @@ export const updateBounds = (bounds) => ({
   type: UPDATE_BOUNDS,
   bounds
 });
-
-export const completeRoute = (user, route) => ({
-  type: COMPLETE_ROUTE,
-  user,
-  route
-})

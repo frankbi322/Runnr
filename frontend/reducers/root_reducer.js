@@ -4,13 +4,17 @@ import RouteReducers from './route_reducer';
 import FriendsReducer from './friends_reducer';
 import UsersReducer from './user_reducer';
 import CommentsReducer from './comments_reducer';
+import CompletionsReducer from './completions_reducer';
+import FollowsReducer from './follows_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
   routes: RouteReducers,
   friends: FriendsReducer,
   users: UsersReducer,
-  comments: CommentsReducer
+  comments: CommentsReducer,
+  completions: CompletionsReducer,
+  follows: FollowsReducer
 });
 
 export default RootReducer;

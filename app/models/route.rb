@@ -13,5 +13,6 @@ class Route < ApplicationRecord
     foreign_key: :route_id,
     class_name: :Comment
 
+    has_many :completions
 
 end

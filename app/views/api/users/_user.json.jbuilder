@@ -1,1 +1,1 @@
-json.extract! user, :id, :username, :completed_runs, :total_distance
+json.extract! user, :id, :username, :total_completions, :total_distance

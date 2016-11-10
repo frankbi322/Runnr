@@ -15,13 +15,17 @@ const commentList = (comments=[]) => (
 class RouteDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.handleComplete = this.handleComplete.bind(this);
   }
 
   componentWillMount() {
     this.props.routes[this.props.params.routeId];
   }
 
-
+  handleComplete(e){
+    e.preventDefault();
+    this.props.createCompletion({user_id: this.props.currentUser.id, route_id: this.props.routes[this.props.params.routeId].id});
+  }
 
   render() {
     if (Object.keys(this.props.routes).length === 0) {
@@ -45,7 +49,7 @@ class RouteDetail extends React.Component {
             <br/>
             <CommentButton/>
             {this.props.children}
-
+            <button onClick={this.handleComplete}>Complete Run!</button>
             <Link to="/dashboard">Back to Index</Link>
         </div>
         </div>

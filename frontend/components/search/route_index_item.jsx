@@ -5,9 +5,7 @@ import {hashHistory} from 'react-router';
 class RouteIndexItem extends React.Component {
   constructor(props){
     super(props);
-
-    
-
+    this.state = this.props.route;
     this.handleClick=this.handleClick.bind(this);
     this.handleComplete=this.handleComplete.bind(this);
   }
@@ -19,6 +17,7 @@ class RouteIndexItem extends React.Component {
 
   handleComplete(e){
     e.preventDefault();
+    this.props.updateUser(this.state)
 
   }
 
@@ -37,12 +36,14 @@ class RouteIndexItem extends React.Component {
           <div> {this.props.route.name}</div>
           <div className="route-index-item-details">
             Name: {name}
+            <br/>
             Created By: {this.props.route.author_name}
           </div>
           <div className="distance_box">
               <h4>Distance: </h4>
               {this.props.route.distance.toFixed(2)} miles
           </div>
+          <button onClick={this.handleComplete}>Complete Run!</button>
       </div>
     );
   }

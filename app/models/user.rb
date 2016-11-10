@@ -27,6 +27,24 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :follower_id
 
+  has_many :completions
+
+  has_many :completed_runs,
+      through: :completions,
+      source: :route
+
+    def total_distance
+      sum = 0
+      self.completed_runs.each do |run|
+        sum+=run.distance
+      end
+      return sum
+    end
+
+  def total_completions
+    completions.count
+  end
+
 
   has_many :comments
 
@@ -51,6 +69,8 @@ class User < ApplicationRecord
 		self.save
 		self.session_token
 	end
+
+
 
 	private
 

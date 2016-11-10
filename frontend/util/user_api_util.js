@@ -15,4 +15,22 @@ export const fetchFriends = (success, id) => {
   });
 };
 
+export const fetchUser = (id, success) => {
+  $.ajax({
+    method: "GET",
+    url: `api/users/${id}`,
+    success
+  });
+};
+
+export const updateUser = (success, user) => {
+  $.ajax ({
+    method: "PATCH",
+    url: `api/users/${user.id}`,
+    data: {user},
+    success
+  });
+};
+
+
 // `api/users/${id}/other_users`,

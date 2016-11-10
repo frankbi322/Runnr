@@ -7,7 +7,7 @@
     json.author_name "#{route.author.username}"
     json.distance route.distance
     json.coordinates route.coordinates
-    json.comments route.comments, partial: 'api/comments/comment', as: :comments
+    json.comments route.comments, partial: 'api/comments/comment', as: :comment
     json.map_url route.map_url
     json.completed route.completed
   end

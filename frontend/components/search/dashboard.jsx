@@ -3,7 +3,7 @@ import ModuleNavigator from '../nav/module_nav';
 import RoutesIndex from './routes_index';
 import IndexMap from '../index_map/index_map';
 import {Link} from 'react-router';
-
+import UserProfile from '../profile/profile';
 
 class Dashboard extends React.Component {
   constructor(props){
@@ -32,10 +32,9 @@ class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <ModuleNavigator path="/dashboard"/>
-
         <IndexMap maproutes={this.state.routes} updateBounds={this.props.updateBounds}/>
         <h2 className="h2">My Routes</h2>
-        <RoutesIndex routes={this.state.routes} requestSingleRoute={this.props.requestSingleRoute}/>
+        <RoutesIndex routes={this.state.routes} updateUser={this.props.updateUser} requestSingleRoute={this.props.requestSingleRoute}/>
 
       </div>
     );

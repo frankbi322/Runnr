@@ -4,10 +4,10 @@ import {Link} from 'react-router';
 
 
 
-const RoutesIndex = ({routes}) => (
+const RoutesIndex = ({routes, updateUser}) => (
   <div className="routes-index">
     {routes.map(route => (
-      <RouteIndexItem route={route} key={route.id}/>
+      <RouteIndexItem route={route} updateUser={updateUser} key={route.id}/>
     ))}
     <Link to="/routes/new"> Create New Route! </Link>
   </div>
