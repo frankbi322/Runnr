@@ -1,5 +1,6 @@
 
 import { RECEIVE_CURRENT_USER, LOGOUT, RECEIVE_ERRORS } from '../actions/session_actions';
+import {RECEIVE_COMPLETION} from '../actions/completion_actions';
 import merge from 'lodash/merge';
 
 const _nullUser = Object.freeze({
@@ -22,6 +23,11 @@ const SessionReducer = (state = _nullUser, action) => {
       return merge({}, _nullUser, {
         errors
       });
+    case RECEIVE_COMPLETION:
+      const nextState = merge({},state);
+      nextState.currentUser.total_completions++;
+      nextState.currentUser.total_distance += action.distance;
+      return nextState;
     default:
       return state;
   }

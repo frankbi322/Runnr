@@ -5,11 +5,13 @@ const CompletionsMiddleware = ({getState,dispatch}) => next => action => {
   let success;
   let error = e => console.log(e.responseJSON);
   let receiveAllCompletionsSuccess = completions => dispatch(receiveAllCompletions(completions));
-  let receiveCompletionSuccess = completion => dispatch(receiveCompletion(completion));
+  let receiveCompletionSuccess = distance => {
+    dispatch(receiveCompletion(distance));
+  };
 
   switch(action.type){
     case CREATE_COMPLETION:
-      createCompletion(action.completion,receiveCompletionSuccess);
+      createCompletion(action.completion, receiveCompletionSuccess);
       return next(action);
     case FETCH_COMPLETIONS:
       fetchCompletions(receiveAllCompletionsSuccess);

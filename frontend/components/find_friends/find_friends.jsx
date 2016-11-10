@@ -30,6 +30,7 @@ class FindFriends extends React.Component {
       }
     }
     return matches;
+
   }
 
   render() {

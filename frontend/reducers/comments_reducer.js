@@ -8,9 +8,7 @@ const CommentsReducer = (oldState = {}, action) => {
       return action.comments;
       // return merge({}, action.comments);
     case RECEIVE_SINGLE_COMMENT:
-      debugger;
-      return action.comment;
-      // return merge({}, oldState,{[action.comment.id]:action.comment});
+      return merge({}, oldState,{[action.comment.id]:action.comment});
     default:
       return oldState;
   }

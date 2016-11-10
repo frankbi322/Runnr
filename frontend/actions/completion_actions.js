@@ -9,9 +9,9 @@ export const createCompletion = (completion) => ({
   completion
 });
 
-export const receiveCompletion = completion => ({
+export const receiveCompletion = distance => ({
   type: RECEIVE_COMPLETION,
-  completion
+  distance
 });
 
 export const receiveAllCompletions = completions => ({

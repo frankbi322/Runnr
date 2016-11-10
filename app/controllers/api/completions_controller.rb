@@ -6,7 +6,7 @@ def create
     route_id: params[:route_id]
   )
   if @completion.save
-    render json: params[:user_id]
+      render json: @completion.route.distance
   else
     render json: @completion.errors.full_messages, status: 422
   end

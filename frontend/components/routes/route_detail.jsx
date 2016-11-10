@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import DetailMap from './detail_map';
 import CommentShow from './comment_show';
 import CommentButton from './comment_button';
 import CommentsList from './comments_list';
@@ -16,15 +15,31 @@ class RouteDetail extends React.Component {
   constructor(props) {
     super(props);
     this.handleComplete = this.handleComplete.bind(this);
+    this.state = this.props.completion || {
+      user_id: "",
+      route_id: ""
+    };
   }
 
   componentWillMount() {
     this.props.routes[this.props.params.routeId];
   }
 
+  componentDidMount(){
+
+  }
+
   handleComplete(e){
     e.preventDefault();
     this.props.createCompletion({user_id: this.props.currentUser.id, route_id: this.props.routes[this.props.params.routeId].id});
+    this.props.router.push('/');
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState(newProps.completion || {
+      user_id:"",
+      route_id:""
+    });
   }
 
   render() {
@@ -46,8 +61,8 @@ class RouteDetail extends React.Component {
             {commentList(route.comments)}
 
             <br/>
-            <CommentButton/>
-            {this.props.children}
+
+            {this.props.children || <CommentButton/>}
             <button onClick={this.handleComplete}>Complete Run!</button>
             <Link to="/dashboard">Back to Index</Link>
         </div>
