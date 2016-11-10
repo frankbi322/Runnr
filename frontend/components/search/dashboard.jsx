@@ -32,6 +32,7 @@ class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <ModuleNavigator path="/dashboard"/>
+        <UserProfile currentUser={this.props.currentUser}/>
         <IndexMap maproutes={this.state.routes} updateBounds={this.props.updateBounds}/>
         <h2 className="h2">My Routes</h2>
         <RoutesIndex routes={this.state.routes} updateUser={this.props.updateUser} requestSingleRoute={this.props.requestSingleRoute}/>

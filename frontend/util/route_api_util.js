@@ -11,8 +11,7 @@ export const createRoute = (route,success)=> {
     method: "POST",
     url: "/api/routes",
     data: route,
-    success,
-    error: (e) => console.log(e)
+    success
   });
 };
 
@@ -23,13 +22,3 @@ export const fetchSingleRoute = (id,success) => {
     success
   });
 };
-
-export const completeRoute = (route, user, success) => {
-  $.ajax({
-    method: "POST",
-    url: "api/completions",
-    data: route, user,
-    success
-
-  })
-}

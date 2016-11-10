@@ -14,3 +14,19 @@ export const deleteComment = (comment,success) => {
     success
   });
 };
+
+export const fetchComments = (success) => {
+  $.ajax({
+    method: "GET",
+    url: "api/comments",
+    success
+  });
+};
+
+export const fetchComment = (id, success) => {
+  $.ajax({
+    method: "GET",
+    url: `api/comments/${id}`,
+    success
+  });
+};

@@ -1,7 +1,20 @@
+export const FETCH_FOLLOWS = "FETCH_FOLLOWS";
+export const FETCH_FOLLOW = "FETCH_FOLLOW";
 export const CREATE_FOLLOW = "CREATE_FOLLOW";
 export const DELETE_FOLLOW = "DELETE_FOLLOW";
-export const REQUEST_FRIENDS = "REQUEST_FRIENDS";
-export const RECEIVE_FRIENDS = "RECEIVE_FRIENDS";
+export const REQUEST_FOLLOWS = "REQUEST_FOLLOWS";
+export const RECEIVE_ALL_FOLLOWS = "RECEIVE_ALL_FOLLOWS";
+export const RECEIVE_SINGLE_FOLLOW = "RECEIVE_SINGLE_FOLLOW";
+export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
+
+export const fetchFollows = () => ({
+  type: FETCH_FOLLOWS
+});
+
+export const fetchFollow = (id) => ({
+  type: FETCH_FOLLOW,
+  id
+});
 
 export const createFollow = (follow) => ({
   type: CREATE_FOLLOW,
@@ -13,12 +26,22 @@ export const deleteFollow = (follow) => ({
   follow
 });
 
-export const requestFriends = (id) => ({
-  type: REQUEST_FRIENDS,
+export const requestFollows = (id) => ({
+  type: REQUEST_FOLLOWS,
   id
 });
 
-export const receiveFriends = (friends) => ({
-  type: RECEIVE_FRIENDS,
-  friends
+export const receiveAllFollows = (follows) => ({
+  type: RECEIVE_ALL_FOLLOWS,
+  follows
+});
+
+export const receiveSingleFollow = (follow) => ({
+  type: RECEIVE_SINGLE_FOLLOW,
+  follow
+});
+
+export const removeFollow = follow => ({
+  type: REMOVE_FOLLOW,
+  follow
 });

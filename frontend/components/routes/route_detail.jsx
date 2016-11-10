@@ -32,7 +32,6 @@ class RouteDetail extends React.Component {
       return(<div>Loading</div>);
     }
     const route = this.props.routes[this.props.params.routeId];
-    // debugger;
 
     return (
         <div className="route-detail">

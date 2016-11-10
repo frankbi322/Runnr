@@ -1,15 +1,26 @@
-import {CREATE_COMMENT} from '../actions/comment_actions';
-import {createComment} from '../util/comment_api_util';
-import { receiveSingleRoute } from '../actions/route_actions';
+import {FETCH_COMMENTS, FETCH_COMMENT, CREATE_COMMENT, receiveComments, receiveSingleComment} from '../actions/comment_actions';
+import {createComment, fetchComments, fetchComment} from '../util/comment_api_util';
+import { hashHistory } from 'react-router';
 
 const CommentsMiddleware = ({getState,dispatch}) => next => action => {
+  let success;
+  let error = e => console.log(e.responseJSON);
+  let receiveAllCommentsSuccess = comments => dispatch(receiveComments(comments));
+  let receiveSingleCommentSuccess = comment => dispatch(receiveSingleComment(comment));
+
+
   switch (action.type) {
     case CREATE_COMMENT:
-      const success = (id) => dispatch(receiveSingleRoute(id));
-      createComment(action.comment,success);
-        return next(action);
-      default:
-        return next(action);
+      createComment(action.comment,receiveSingleCommentSuccess);
+      return next(action);
+    case FETCH_COMMENTS:
+      fetchComments(receiveAllCommentsSuccess);
+      return next(action);
+    case FETCH_COMMENT:
+      fetchComment(action.id, receiveSingleCommentSuccess);
+      return next(action);
+    default:
+      return next(action);
   }
 };
 
