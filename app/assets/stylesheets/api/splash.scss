@@ -1,3 +1,13 @@
-.splash {
-  width:100%;
-}
+  .splash {
+    display: flex;
+    text-align: center;
+    width:100%;
+    flex-direction: column;
+
+  }
+
+  .logo {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 3px black;
+  }

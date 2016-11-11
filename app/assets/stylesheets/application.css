@@ -224,11 +224,7 @@ div login-form-container{
    font-size: 14px;
  }
 
- .logo {
-   display: inline-block;
-   float:left;
-   padding: 12px 10px 0 10px;
- }
+
 
  .nav-dropdown-content li {
      color: #404040;
@@ -427,3 +423,7 @@ div login-form-container{
    background-color: #ffaf1a;
    background-color: #e70000;
  }
+
+.header-link {
+  border-radius: 1px solid black;
+}
