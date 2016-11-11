@@ -45,7 +45,6 @@ class User < ApplicationRecord
     completions.count
   end
 
-
   has_many :comments
 
 	def password=(password)

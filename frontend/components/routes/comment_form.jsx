@@ -11,8 +11,7 @@ class CommentForm extends React.Component {
     this.returnToRoute = this.returnToRoute.bind(this);
   }
 
-  returnToRoute(e) {
-    e.preventDefault();
+  returnToRoute() {
     this.props.router.push(`/routes/${this.props.params.routeId}`);
   }
 
@@ -25,7 +24,10 @@ class CommentForm extends React.Component {
       author_id: authorId
     });
     this.props.createComment({comment});
-    this.props.router.push(`/routes/${this.props.params.routeId}`);
+    this.setState({
+      body: ""
+    })
+    this.returnToRoute();
   }
 
   update(property) {

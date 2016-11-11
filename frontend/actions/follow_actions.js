@@ -21,9 +21,9 @@ export const createFollow = (follow) => ({
   follow
 });
 
-export const deleteFollow = (follow) => ({
+export const deleteFollow = (id) => ({
   type: DELETE_FOLLOW,
-  follow
+  id
 });
 
 export const requestFollows = (id) => ({

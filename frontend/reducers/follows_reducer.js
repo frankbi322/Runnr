@@ -1,6 +1,6 @@
 import {merge} from 'lodash';
 import {hashHistory} from 'react-router';
-import {CREATE_FOLLOW, DELETE_FOLLOW, RECEIVE_ALL_FOLLOWS, RECEIVE_SINGLE_FOLLOW} from '../actions/follow_actions';
+import {REMOVE_FOLLOW, RECEIVE_ALL_FOLLOWS, RECEIVE_SINGLE_FOLLOW} from '../actions/follow_actions';
 
 
 const FollowsReducer = (oldState = {}, action) => {
@@ -9,10 +9,13 @@ const FollowsReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_FOLLOWS:
       return merge({}, action.follows);
     case RECEIVE_SINGLE_FOLLOW:
-      return merge({},oldState,{[action.follow.id]:action.follow})
-    case DELETE_FOLLOW:
+      const targetFollow = oldState[action.follow.id];
+      debugger;
+      return merge({},oldState,{[action.follow.id]:action.follow});
+    case REMOVE_FOLLOW:
+      debugger;
       let newState = merge({},oldState);
-      delete newState[action.follow.id];
+      delete newState[action.id];
       return newState;
     default:
       return oldState;

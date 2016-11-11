@@ -1,7 +1,7 @@
 
 import {REQUEST_ROUTES,CREATE_ROUTE,REQUEST_SINGLE_ROUTE, UPDATE_BOUNDS,receiveRoutes,receiveSingleRoute,requestSingleRoute  } from '../actions/route_actions';
-
-
+import {CREATE_COMMENT,receiveSingleComment} from '../actions/comment_actions';
+import {createComment} from '../util/comment_api_util';
 import { fetchAllRoutes, createRoute, fetchSingleRoute } from '../util/route_api_util';
 
 const RouteMiddleware = ({getState, dispatch}) => next => action => {
@@ -24,8 +24,15 @@ const RouteMiddleware = ({getState, dispatch}) => next => action => {
       };
 
       fetchSingleRoute(action.id, fetchSuccess, ()=>console.log("error"));
-    case UPDATE_BOUNDS :
-      next(action);
+      return next(action);
+    case CREATE_COMMENT:
+      const commentSuccess = data => {
+        dispatch(receiveSingleComment(data));
+      };
+      createComment(action.comment,commentSuccess);
+      return next(action);
+    case UPDATE_BOUNDS:
+      return next(action);
     default:
       return next(action);
   }

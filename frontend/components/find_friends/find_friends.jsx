@@ -9,6 +9,7 @@ class FindFriends extends React.Component {
       input: ""
     };
     this.handleInput = this.handleInput.bind(this);
+    this.matches = this.matches.bind(this);
   }
 
   componentDidMount(){
@@ -35,8 +36,13 @@ class FindFriends extends React.Component {
 
   render() {
     let followStatus;
+    let that=this;
     let results = this.matches().map((user,index) => {
-      if (this.props.friends.hasOwnProperty(user.id)) {
+
+    let friendIds =  that.props.friends.map((friend) => {
+        return friend.id;
+      });
+      if (friendIds.includes(user.id)) {
         followStatus = "Following";
       } else {
         followStatus = "Not Following";
@@ -44,10 +50,11 @@ class FindFriends extends React.Component {
 
       return <UserProfile key={user.id}
         user={user}
-        currentUser={this.props.currentUser}
-        deleteFollow={this.props.deleteFollow}
-        createFollow={this.props.createFollow}
+        currentUser={that.props.currentUser}
+        deleteFollow={that.props.deleteFollow}
+        createFollow={that.props.createFollow}
         followStatus={followStatus}
+        fetchFollows={this.props.fetchFollows}
         />;
     });
 
