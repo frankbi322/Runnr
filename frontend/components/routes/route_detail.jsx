@@ -15,6 +15,7 @@ class RouteDetail extends React.Component {
   constructor(props) {
     super(props);
     this.handleComplete = this.handleComplete.bind(this);
+    this.returnToDashboard = this.returnToDashboard.bind(this);
     this.state = this.props.completion || {
       user_id: "",
       route_id: ""
@@ -27,6 +28,11 @@ class RouteDetail extends React.Component {
 
   componentDidMount(){
 
+  }
+
+  returnToDashboard(e){
+    e.preventDefault();
+    this.props.router.push('/');
   }
 
   handleComplete(e){
@@ -55,7 +61,7 @@ class RouteDetail extends React.Component {
             <h3>Name: {route.name}</h3>
             <h4>Distance: {route.distance.toFixed(2)} miles</h4>
             <h4>Created By: {route.author_name}</h4>
-            Description: {route.description}
+            <span>Description: {route.description}</span>
             <br/>
             Comments:
             {commentList(route.comments)}
@@ -64,7 +70,7 @@ class RouteDetail extends React.Component {
 
             {this.props.children || <CommentButton/>}
             <button onClick={this.handleComplete}>Complete Run!</button>
-            <Link to="/dashboard">Back to Index</Link>
+            <button onClick={this.returnToDashboard}>Back to Dashboard</button>
         </div>
         </div>
 

@@ -6,13 +6,14 @@ const FollowsMiddleware = ({getState,dispatch}) => next => action => {
   let error = e => console.log(e.responseJSON);
   let receiveAllFollowsSuccess = follows => dispatch(receiveAllFollows(follows));
   let receiveSingleFollowSuccess = follow => dispatch(receiveSingleFollow(follow));
-  let removeFollowSuccess = id => dispatch(removeFollow(id));
+  let removeFollowSuccess = follow => dispatch(removeFollow(follow));
 
   switch(action.type){
     case CREATE_FOLLOW:
       createFollow(action.follow,receiveSingleFollowSuccess);
       return next(action);
     case DELETE_FOLLOW:
+      debugger;
       deleteFollow(action.id,removeFollowSuccess);
       return next(action);
     case FETCH_FOLLOWS:

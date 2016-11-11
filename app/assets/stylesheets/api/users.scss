@@ -5,6 +5,7 @@
 .users-list{
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   width: 75%;
   margin: 0 auto;
   height: 300px;
@@ -12,10 +13,21 @@
 }
 
 .user-item{
-   width: 40%;
+   width: 80%;
+   height: 75px;
    display: flex;
-   height: 200px;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: row;
+   height: 125px;
    border: 2px solid #ccc;
    border-radius: 5px;
-   margin: 2% 2% 2% 2%;
+  //  margin: 2% 2% 2% 2%;
+  .follow-button{
+    width: 75px;
+  }
+}
+
+.input {
+  align-content: center;
 }

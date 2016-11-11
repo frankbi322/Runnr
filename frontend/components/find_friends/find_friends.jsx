@@ -16,9 +16,7 @@ class FindFriends extends React.Component {
     this.props.requestOtherUsers();
   }
 
-  componentWillUpdate(){
-    console.log("Find Friends");
-  }
+
 
   handleInput(event) {
     this.setState({input: event.currentTarget.value});
@@ -39,28 +37,45 @@ class FindFriends extends React.Component {
   }
 
   render() {
-    let followStatus;
-    let that=this;
-    let results = this.matches().map((user,index) => {
-
-    let friendIds =  that.props.friends.map((friend) => {
-        return friend.id;
-      });
-      if (friendIds.includes(user.id)) {
-        followStatus = "Following";
-      } else {
-        followStatus = "Not Following";
+    const friendIds = this.props.follows.map(follow => {
+      if (follow.follower_id===this.props.currentUser.id) {
+        return follow.followee_id;
       }
+    });
 
+    let results = this.matches().map((user,index) => {
+      let followStatus;
+      if (friendIds.includes(user.id)) {
+        followStatus="Following";
+      } else {
+        followStatus="Not Following";
+      }
       return <UserProfile key={user.id}
         user={user}
-        currentUser={that.props.currentUser}
-        deleteFollow={that.props.deleteFollow}
-        createFollow={that.props.createFollow}
+        currentUser={this.props.currentUser}
+        deleteFollow={this.props.deleteFollow}
+        createFollow={this.props.createFollow}
         followStatus={followStatus}
         fetchFollows={this.props.fetchFollows}
         />;
     });
+
+
+    // let followStatus;
+    // let that=this;
+    // let results = this.matches().map((user,index) => {
+    //
+    // let friendIds =  that.props.friends.map((friend) => {
+    //     return friend.id;
+    //   });
+    //   if (friendIds.includes(user.id)) {
+    //     followStatus = "Following";
+    //   } else {
+    //     followStatus = "Not Following";
+    //   }
+
+
+    // });
 
       return (
         <div>

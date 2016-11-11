@@ -11,9 +11,7 @@ class UserProfile extends React.Component {
     this.props.fetchFollows();
   }
 
-  componentWillUpdate(){
-    console.log("Friend Item");
-  }
+
 
   follow() {
     this.props.createFollow({
@@ -46,14 +44,14 @@ class UserProfile extends React.Component {
     } else {
       followButton =
       <div>
-        <button onClick={this.follow}>Add Friend!</button>
+        <button className="button" onClick={this.follow}>Add Friend!</button>
       </div>;
     }
 
 
     return (
       <div className="user-item">
-        <span>Username: {this.props.user.username}</span>
+        Username: {this.props.user.username}
         {followButton}
       </div>
     );

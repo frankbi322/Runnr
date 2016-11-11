@@ -22,19 +22,17 @@
 
       .item-container {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         border: 1px solid black;
 
         div{
           width: 100px;
         }
-
         .distance_box {
           text-align: center;
           width: 100px;
-          margin-right: 20px;
-          margin-left: 10px;
-          border: 1px solid black;
+          border-left: 1px solid black;
           }
 
         .index-img {
@@ -43,12 +41,15 @@
         }
 
         .route-index-item-details {
-          text-align: center;
-          justify-content: center;
-          align-items: center;
+          align-content: space-around;
+          flex-direction: row;
+          justify-content: space-around;
         }
 
 
+      }
+      .item-container:hover{
+        cursor: pointer;
       }
     }
     button{

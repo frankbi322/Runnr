@@ -187,13 +187,14 @@ class AppMap extends React.Component {
               </button>
               <button className="route-form-button" onClick={this.returnToIndex}>Cancel</button>
             </div>
-          </form>
-          <div className="distance-container">
-          <label className="distance-label">Distance: </label>
-          <div className="distance">
-            <span>{ this.state.totalDistance.toFixed(2) }</span> mi
+            <div className="distance-container">
+            <label className="distance-label">Distance: </label>
+            <div className="distance">
+              <span>{ this.state.totalDistance.toFixed(2) }</span> mi
+            </div>
           </div>
-        </div>
+          </form>
+
         </div>
       </section>
     );
