@@ -129,7 +129,7 @@ class AppMap extends React.Component {
     };
 
     this.props.createRoute({route});
-    this.props.router.push('/');
+    this.props.router.push('/dashboard');
   }
 
   update(property) {
@@ -160,6 +160,11 @@ class AppMap extends React.Component {
         <div id="map-container" ref="map"></div>
         <div className="route-details">
           <form className="route-form" onSubmit={this.handleSubmit}>
+            <div>
+              <h3>Instructions:</h3>
+              <br/>
+              <p>Create a route! Click on the map to set a starting point. Then, add additional waypoints to build your route!</p>
+            </div>
             <label className="name-label">Route Name: <br />
               <input
                 type="text"

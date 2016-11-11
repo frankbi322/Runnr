@@ -9,7 +9,7 @@ const RoutesIndex = ({routes, updateUser}) => (
     {routes.map(route => (
       <RouteIndexItem route={route} updateUser={updateUser} key={route.id}/>
     ))}
-    <Link to="/routes/new"> Create New Route! </Link>
+
   </div>
 );
 

@@ -15,6 +15,7 @@ import CommentFormContainer from './routes/comment_form_container';
 import ProfileContainer from './profile/profile_container';
 import FriendsContainer from './friends/friends_container';
 import FindFriendsContainer from './find_friends/find_friends_container';
+import Splash from './splash';
 
 import {requestRoutes} from '../actions/route_actions';
 import {requestOtherUsers} from '../actions/user_actions';
@@ -31,7 +32,7 @@ const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/dashboard');
     }
   };
 
@@ -49,7 +50,8 @@ const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={App}>
+        <Route path="/" component={App} >
+          <IndexRoute component={Splash}/>
           <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />

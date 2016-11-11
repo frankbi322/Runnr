@@ -1,21 +1,30 @@
 
 import React from 'react';
 import { Link } from 'react-router';
+import ModuleNavigator from '../nav/module_nav';
 
 const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login" activeClassName="current">Login</Link>
-    &nbsp;or&nbsp;
-    <Link to="/signup" activeClassName="current">Sign up!</Link>
+  <nav className="no-current-user">
+    <div className="signup-login">
+    <a href="#/login"><button>LOG IN</button></a>
+    <a href="#/signup"><button>SIGN UP</button></a>
+    </div>
   </nav>
 );
 
 const personalGreeting = (currentUser, logout) => (
 	<hgroup className="header-group">
     <module_nav/>
-    <h2 className="header-name">Hi, {currentUser.username}!</h2>
-    <button className="header-button" onClick={logout}>Log Out</button>
-	</hgroup>
+    <div className="nav-buttons">
+      <a href="#/dashboard"><button>DASHBOARD</button></a>
+      <a href="#/routes"><button>ROUTES</button></a>
+      <a href="#/find_friends"><button>FIND FRIENDS</button></a>
+    </div>
+    <div className="user-info">
+      <h2 className="header-name">Hi, {currentUser.username}!</h2>
+      <button className="header-button" onClick={logout}>Log Out</button>
+    </div>
+</hgroup>
 );
 
 const Greeting = ({ currentUser, logout }) => (
@@ -23,3 +32,7 @@ const Greeting = ({ currentUser, logout }) => (
 );
 
 export default Greeting;
+
+    // <Link to="/login" activeClassName="current">Login</Link>
+// &nbsp;or&nbsp;
+  // <Link to="/signup" activeClassName="current">Sign up!</Link>

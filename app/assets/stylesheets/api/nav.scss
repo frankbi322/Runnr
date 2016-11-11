@@ -20,6 +20,8 @@
     }
   }
 
+
+
   div:last-child{
     border-right: 0px;
   }
@@ -30,4 +32,11 @@
   //   box-sizing: border-box;
   //   border-bottom: 5px solid black;
   // }
+}
+
+.no-current-user {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: row;
 }

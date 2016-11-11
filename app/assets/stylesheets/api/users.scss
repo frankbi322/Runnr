@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.friends-header{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
 .users-list{
   display: flex;
   justify-content: space-around;
@@ -13,7 +20,7 @@
 }
 
 .user-item{
-   width: 80%;
+   width: 90%;
    height: 75px;
    display: flex;
    justify-content: space-between;

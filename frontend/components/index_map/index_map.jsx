@@ -10,7 +10,7 @@ const _getCoordsObj = latLng => ({
 
 let _mapOptions = {
   center: {lat: 37.773972, lng: -122.431297}, // San Francisco coords
-  zoom: 13
+  zoom: 12
 };
 
 class IndexMap extends React.Component {

@@ -79,10 +79,12 @@ class FindFriends extends React.Component {
 
       return (
         <div>
-          <ModuleNavigator/>
-          <span>Add Friends!</span>
-          <div method="get">
-            <input type="text" placeholder="Find by Username" onChange={this.handleInput}/>
+          <div className="friends-header">
+            <h3>Add Friends!</h3>
+            <p>Search for other runners here!</p>
+            <div method="get">
+              <input type="text" placeholder="Find by Username" onChange={this.handleInput}/>
+            </div>
           </div>
           <br/>
           <div>

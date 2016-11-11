@@ -31,17 +31,17 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <ModuleNavigator path="/dashboard"/>
+
         <div className="dashboard">
 
           <UserProfile currentUser={this.props.currentUser}/>
-          <div className="map-container">
+
             <IndexMap maproutes={this.state.routes} updateBounds={this.props.updateBounds}/>
-          </div>
+
 
           <h2 className="h2">My Routes</h2>
           <RoutesIndex routes={this.state.routes} updateUser={this.props.updateUser} requestSingleRoute={this.props.requestSingleRoute}/>
-
+          <a href="#/routes/new"><button>Create New Route! </button></a>
         </div>
       </div>
     );
@@ -50,3 +50,5 @@ class Dashboard extends React.Component {
 }
 
 export default Dashboard;
+
+        // <ModuleNavigator path="/dashboard"/>

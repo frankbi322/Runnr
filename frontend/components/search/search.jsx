@@ -21,7 +21,6 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <ModuleNavigator path="/routes"/>
         <div className="search">
 
           <IndexMap className="static-map" maproutes={this.props.routes} updateBounds={this.props.updateBounds}/>
