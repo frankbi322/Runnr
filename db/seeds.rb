@@ -127,6 +127,15 @@ route9 = Route.create!(
   map_url: "https://maps.googleapis.com/maps/api/staticmap?size=500x500&key=AIzaSyApIfSmh05sKYDsD506WRgLPeQihGFVLyI&markers=color:red|37.78671204340963,-122.45264768600464&markers=color:red|37.78915394596523,-122.43239164352417&markers=color:red|37.775790325191224,-122.42981672286987&markers=color:red|37.77280522701264,-122.44972944259644&path=37.78671204340963,-122.45264768600464|37.78915394596523,-122.43239164352417|37.775790325191224,-122.42981672286987|37.77280522701264,-122.44972944259644"
 )
 
+route10= Route.create!(
+  name: "Golden Gate Bridge",
+  description: "A beautiful run across the Golden Gate Bridge!",
+  author_id: frank.id,
+  distance: 1.44678,
+  coordinates: ["37.808402299831634,-122.47756004333496,37.829149805157726,-122.4796199798584"],
+  map_url: "https://maps.googleapis.com/maps/api/staticmap?size=500x500&key=AIzaSyApIfSmh05sKYDsD506WRgLPeQihGFVLyI&markers=color:red|37.808402299831634,-122.47756004333496&markers=color:red|37.829149805157726,-122.4796199798584&path=37.808402299831634,-122.47756004333496|37.829149805157726,-122.4796199798584"
+)
+
 #Comments
 Comment.create!(
   author_id: ken.id,
@@ -177,6 +186,11 @@ Completion.create!(
 Completion.create!(
   user_id: alex.id,
   route_id: route1.id
+)
+
+Completion.create!(
+  user_id: guest.id,
+  route_id: route10.id
 )
 
 Follow.create!(
