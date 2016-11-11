@@ -6,7 +6,7 @@ const FollowsMiddleware = ({getState,dispatch}) => next => action => {
   let error = e => console.log(e.responseJSON);
   let receiveAllFollowsSuccess = follows => dispatch(receiveAllFollows(follows));
   let receiveSingleFollowSuccess = follow => dispatch(receiveSingleFollow(follow));
-  let removeFollowSuccess = follow => dispatch(removeFollow(follow));
+  let removeFollowSuccess = id => dispatch(removeFollow(id));
 
   switch(action.type){
     case CREATE_FOLLOW:

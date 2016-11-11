@@ -16,6 +16,10 @@ class FindFriends extends React.Component {
     this.props.requestOtherUsers();
   }
 
+  componentWillUpdate(){
+    console.log("Find Friends");
+  }
+
   handleInput(event) {
     this.setState({input: event.currentTarget.value});
   }

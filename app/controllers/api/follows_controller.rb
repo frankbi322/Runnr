@@ -15,7 +15,7 @@ class Api::FollowsController < ApplicationController
   def destroy
     @follow = Follow.find(params[:id])
     if @follow.destroy
-      render json: params[:follower_id]
+      render json: 'api/follows/show'
     else
       render json: follow.errors.full_messages, status: 422
     end

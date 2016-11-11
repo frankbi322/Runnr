@@ -6,7 +6,8 @@ import {requestOtherUsers} from '../../actions/user_actions';
 const mapStateToProps = state => ({
   users: state.users,
   currentUser: state.session.currentUser,
-  friends: state.session.currentUser.friends
+  friends: state.session.currentUser.friends,
+  follows: state.follows
 });
 
 const mapDispatchToProps = dispatch => ({
