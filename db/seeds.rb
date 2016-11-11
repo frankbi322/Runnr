@@ -8,6 +8,12 @@
 
 #Users
 
+Completion.destroy_all
+Follow.destroy_all
+Comment.destroy_all
+Route.destroy_all
+User.destroy_all
+
 frank = User.create!(username: "Frank",
               password: "password",
               )
@@ -194,16 +200,16 @@ Completion.create!(
 )
 
 Follow.create!(
-  follower_id: 1,
-  followee_id: 5
+  follower_id: frank.id,
+  followee_id: jenn.id
 )
 
 Follow.create!(
-  follower_id: 4,
-  followee_id: 3
+  follower_id: guest.id,
+  followee_id: ken.id
 )
 
 Follow.create!(
-  follower_id: 2,
-  followee_id: 1
+  follower_id: alex.id,
+  followee_id: george.id
 )
