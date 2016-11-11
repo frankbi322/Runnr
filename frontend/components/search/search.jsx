@@ -20,12 +20,15 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div className="search">
+      <div>
         <ModuleNavigator path="/routes"/>
-        <IndexMap className="static-map" maproutes={this.props.routes} updateBounds={this.props.updateBounds}/>
-        <h2>All Routes</h2>
-        <RoutesIndex routes={this.props.routes} updateUser={this.props.updateUser} requestSingleRoute={this.props.requestSingleRoute}/>
-        <button onClick={this.returnToDashboard}>Return to Dashboard</button>
+        <div className="search">
+
+          <IndexMap className="static-map" maproutes={this.props.routes} updateBounds={this.props.updateBounds}/>
+          <h2>All Routes</h2>
+          <RoutesIndex routes={this.props.routes} updateUser={this.props.updateUser} requestSingleRoute={this.props.requestSingleRoute}/>
+          <button onClick={this.returnToDashboard}>Return to Dashboard</button>
+        </div>
       </div>
   );
   }

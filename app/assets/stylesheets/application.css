@@ -16,7 +16,7 @@
  body{
    font-family: 'Open Sans', sans-serif;
    font-size: 100%;
-   background-image: url('splashimage.jpeg');
+
    opacity: 50%;
    background-size: 100%;
    background-repeat: no-repeat;
@@ -56,14 +56,22 @@
  }
 
  nav {
+   display: flex;
+   justify-content: space-around;
    height: 70px;
    color: #686868;
    vertical-align: middle;
    text-align: right;
    font-family: 'Roboto Condensed', sans-serif;
    font-size: 16px;
-   position:relative;
 
+ }
+
+ h4{
+   display: flex;
+   justify-content: flex-start;
+   width: 100%;
+   margin-left: 10px;
  }
 
  span{

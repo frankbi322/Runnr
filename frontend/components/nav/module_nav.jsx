@@ -10,15 +10,15 @@ class ModuleNavigator extends React.Component {
     return (
       <nav className="nav">
         <div className={this.props.path === "/dashboard" ? "module-selected" : "module-unselected"}>
-          <Link to="/dashboard">DASHBOARD</Link>
+          <a href="#/dashboard"><button>DASHBOARD</button></a>
         </div>
 
         <div className={this.props.path === "/routes" ? "module-selected" : "module-unselected"}>
-          <Link to="/routes">ALL ROUTES</Link>
+          <a href="#/routes"><button>ROUTES</button></a>
         </div>
 
         <div className={this.props.path === "/friends" ? "module-selected" : "module-unselected"}>
-          <Link to="/find_friends">FRIENDS</Link>
+          <a href="#/find_friends"><button>FIND FRIENDS</button></a>
         </div>
       </nav>
     );

@@ -44,12 +44,12 @@ const Root = ({ store }) => {
     _ensureLoggedIn(nextState,replace);
     store.dispatch(requestOtherUsers());
   };
+  // <IndexRoute component={DashboardContainer} onEnter={_ensureLoggedIn} />
 
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={DashboardContainer} />
           <Route path="/dashboard" component={DashboardContainer} onEnter={_ensureLoggedIn}/>
           <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />

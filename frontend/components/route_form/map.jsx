@@ -83,10 +83,7 @@ class AppMap extends React.Component {
       const lng = e.latLng.lng();
       const newCoord = {lat,lng};
       that.setState({coords: that.state.coords.concat([newCoord])});
-      // console.log(that.state.coords);
-      // console.log(this.waypoints);
       this.makeRoute(this.state.coords,this.map);
-      // this.calculateDistance();
     });
 
   }
@@ -94,7 +91,6 @@ class AppMap extends React.Component {
   calculateDistance(meters){
     let distance = meters / 1609.34;
 
-  // console.log(distance);
   this.setState({totalDistance:distance});
 }
 

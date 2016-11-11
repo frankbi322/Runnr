@@ -32,13 +32,13 @@ class RouteDetail extends React.Component {
 
   returnToDashboard(e){
     e.preventDefault();
-    this.props.router.push('/');
+    this.props.router.push('/dashboard');
   }
 
   handleComplete(e){
     e.preventDefault();
     this.props.createCompletion({user_id: this.props.currentUser.id, route_id: this.props.routes[this.props.params.routeId].id});
-    this.props.router.push('/');
+    this.props.router.push('/dashboard');
   }
 
   componentWillReceiveProps(newProps) {

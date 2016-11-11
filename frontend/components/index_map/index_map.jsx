@@ -64,7 +64,11 @@ class IndexMap extends React.Component {
 
 
   render() {
-    return <div className="static-map" ref="map">Map</div>;
+    return (
+      <div className="map-container">
+        <div className="static-map" ref="map">Map</div>
+      </div>
+    );
   }
 }
 
