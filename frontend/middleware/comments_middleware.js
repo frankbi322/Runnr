@@ -4,10 +4,8 @@ import { hashHistory } from 'react-router';
 
 const CommentsMiddleware = ({getState,dispatch}) => next => action => {
   let success;
-  let error = e => console.log(e.responseJSON);
   let receiveAllCommentsSuccess = comments => dispatch(receiveComments(comments));
   let receiveSingleCommentSuccess = comment => {
-    debugger;
     dispatch(receiveSingleComment(comment));
 };
 
@@ -20,7 +18,6 @@ const CommentsMiddleware = ({getState,dispatch}) => next => action => {
       return next(action);
     case FETCH_COMMENT:
       fetchComment(action.id, receiveSingleCommentSuccess);
-      debugger;
       return next(action);
     default:
       return next(action);

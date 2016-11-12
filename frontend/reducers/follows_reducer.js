@@ -10,11 +10,9 @@ const FollowsReducer = (oldState = {}, action) => {
       return merge({}, action.follows);
     case RECEIVE_SINGLE_FOLLOW:
       const targetFollow = oldState[action.follow.id];
-      debugger;
       return merge({},oldState,{[action.follow.id]:action.follow});
     case REMOVE_FOLLOW:
       let newState = merge({}, oldState);
-      debugger;
       delete newState[action.follow.id];
       return newState;
     default:

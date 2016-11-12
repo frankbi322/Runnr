@@ -15,7 +15,6 @@ const RoutesReducer = (state = {}, action) => {
       const targetRoute = state[action.comment.route.id];
       const copiedRoute = merge({},targetRoute);
       copiedRoute.comments.push(action.comment);
-      debugger;
       return merge({},state,{[copiedRoute.id]:copiedRoute});
       // return merge({},state,{[action.comment.route.id]:action.comment.route});
     case UPDATE_BOUNDS:

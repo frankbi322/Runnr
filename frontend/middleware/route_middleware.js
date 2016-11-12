@@ -5,7 +5,6 @@ import {createComment} from '../util/comment_api_util';
 import { fetchAllRoutes, createRoute, fetchSingleRoute } from '../util/route_api_util';
 
 const RouteMiddleware = ({getState, dispatch}) => next => action => {
-  // console.log(action.type);
   switch(action.type){
     case REQUEST_ROUTES:
       const success = (data) =>dispatch(receiveRoutes(data));
@@ -19,7 +18,6 @@ const RouteMiddleware = ({getState, dispatch}) => next => action => {
       return next(action);
     case REQUEST_SINGLE_ROUTE:
       const fetchSuccess = data => {
-        // console.log(data);
         dispatch(receiveSingleRoute(data));
       };
 

@@ -6,7 +6,6 @@ import { requestRoutes, requestSingleRoute, updateBounds } from '../../actions/r
 import {updateUser } from '../../actions/user_actions';
 
 const mapStateToProps = state => {
-  // debugger;
   return ({
   currentUser: state.session.currentUser,
   routes: asArray(state)
