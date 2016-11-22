@@ -10,7 +10,7 @@ import FollowsReducer from './follows_reducer';
 const RootReducer = combineReducers({
   session: SessionReducer,
   routes: RouteReducer,
-  friends: FriendsReducer,
+  // friends: FriendsReducer,
   users: UsersReducer,
   comments: CommentsReducer,
   completions: CompletionsReducer,

@@ -10,7 +10,7 @@ import CompletionsMiddleware from './completions_middleware';
 const RootMiddleware = applyMiddleware(
   SessionMiddleware,
   RouteMiddleware,
-  FriendsMiddleware,
+  // FriendsMiddleware,
   FollowsMiddleware,
   CommentsMiddleware,
   UsersMiddleware,

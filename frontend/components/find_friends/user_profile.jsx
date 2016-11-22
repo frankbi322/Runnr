@@ -21,11 +21,8 @@ class UserProfile extends React.Component {
   }
 
   unfollow() {
-
-
     const follows = this.props.currentUser.follows;
     const test = follows.filter(follow => (follow.followee_id===this.props.user.id));
-
     if (test.length>0) {
     const deleteId = test[0].id;
     this.props.deleteFollow(
