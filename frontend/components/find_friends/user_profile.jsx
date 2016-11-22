@@ -9,6 +9,7 @@ class UserProfile extends React.Component {
 
   componentWillMount(){
     this.props.fetchFollows();
+    this.props.requestOtherUsers();
   }
 
 
@@ -21,14 +22,16 @@ class UserProfile extends React.Component {
   }
 
   unfollow() {
-    const follows = this.props.currentUser.follows;
+    const follows = this.props.follows;
     const test = follows.filter(follow => (follow.followee_id===this.props.user.id));
     if (test.length>0) {
     const deleteId = test[0].id;
     this.props.deleteFollow(
       deleteId
     );
-    }
+  } else {
+    this.follow();
+  }
   }
 
   render(){

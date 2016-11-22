@@ -52,11 +52,13 @@ class FindFriends extends React.Component {
       }
       return <UserProfile key={user.id}
         user={user}
+        follows={this.props.follows}
         currentUser={this.props.currentUser}
         deleteFollow={this.props.deleteFollow}
         createFollow={this.props.createFollow}
         followStatus={followStatus}
         fetchFollows={this.props.fetchFollows}
+        requestOtherUsers={this.props.requestOtherUsers}
         />;
     });
 
