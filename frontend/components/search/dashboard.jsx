@@ -41,7 +41,9 @@ class Dashboard extends React.Component {
 
           <h2 className="h2">My Routes</h2>
           <RoutesIndex routes={this.state.routes} updateUser={this.props.updateUser} requestSingleRoute={this.props.requestSingleRoute}/>
+          <div className="route-button-container">
           <a href="#/routes/new"><button>Create New Route! </button></a>
+          </div>
         </div>
       </div>
     );

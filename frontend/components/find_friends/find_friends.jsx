@@ -89,7 +89,7 @@ class FindFriends extends React.Component {
             </div>
           </div>
           <br/>
-          <div>
+          <div className="users-list">
             <ul className="users-list">
               {results}
             </ul>

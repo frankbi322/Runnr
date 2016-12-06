@@ -61,13 +61,18 @@ class Greeting extends React.Component{
     )
     } else {
       return (
-      <nav className="no-current-user">
-        <div className="signup-login">
-        <a href="#/login"><button>LOG IN</button></a>
-        <a href="#/signup"><button>SIGN UP</button></a>
+        <div className="splash-image-container">
+        <div id="bg">
+          <img src="http://res.cloudinary.com/frankbi322/image/upload/c_limit,h_800,w_1200/v1478893566/photo-1427384906349-30452365b5e8_nq6u6z.jpg"></img>
         </div>
-      </nav>
-      )
+        <nav className="no-current-user">
+          <div className="signup-login">
+            <a href="#/login"><button>LOG IN</button></a>
+            <a href="#/signup"><button>SIGN UP</button></a>
+          </div>
+        </nav>
+      </div>
+    );
     }
   }
 

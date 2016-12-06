@@ -26,7 +26,9 @@ class Search extends React.Component {
           <IndexMap className="static-map" maproutes={this.props.routes} updateBounds={this.props.updateBounds}/>
           <h2>All Routes</h2>
           <RoutesIndex routes={this.props.routes} updateUser={this.props.updateUser} requestSingleRoute={this.props.requestSingleRoute}/>
+          <div className="button-container">
           <button onClick={this.returnToDashboard}>Return to Dashboard</button>
+          </div>
         </div>
       </div>
   );

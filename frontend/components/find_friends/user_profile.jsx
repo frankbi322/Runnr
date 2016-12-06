@@ -51,7 +51,7 @@ class UserProfile extends React.Component {
 
     return (
       <div className="user-item">
-        Username: {this.props.user.username}
+        {this.props.user.username}
         {followButton}
       </div>
     );
