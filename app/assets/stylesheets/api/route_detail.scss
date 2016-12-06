@@ -28,4 +28,22 @@
 
     }
   }
+
+  .comment-container{
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .route-button-container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .comment-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

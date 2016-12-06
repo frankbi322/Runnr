@@ -6,6 +6,11 @@
 
   }
 
+  .logo-container{
+    display: flex;
+    align-items: flex-start;
+  }
+
   .logo {
     border: 1px solid black;
     border-radius: 5px;

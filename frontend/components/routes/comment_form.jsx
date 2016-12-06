@@ -26,7 +26,7 @@ class CommentForm extends React.Component {
     this.props.createComment({comment});
     this.setState({
       body: ""
-    })
+    });
     this.returnToRoute();
   }
 
@@ -42,7 +42,7 @@ class CommentForm extends React.Component {
     return (
       <div className="comment-form">
         <form onSubmit={this.handleSubmit}>
-          <label>Comment</label>
+          <label>Leave Comment!</label>
           <br/>
           <textarea
             cols='30'
@@ -50,9 +50,11 @@ class CommentForm extends React.Component {
             value={this.state.body}
             onChange={this.update("body")}></textarea>
           <br/>
-          <input className="button" type="submit" value="Leave Comment"></input>
-        </form>
+        <div className="comment-button-container">
+        <input className="button" type="submit" value="Submit Comment"></input>
         <button onClick={this.returnToRoute}>Cancel</button>
+      </div>
+        </form>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Comment = ({author_name,body}) => (
-  <div>
+  <div className="comment-container">
     <ul>
       <li>{author_name}: {body}</li>
     </ul>

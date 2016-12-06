@@ -63,14 +63,16 @@ class RouteDetail extends React.Component {
             <h4>Created By: {route.author_name}</h4>
             <span>Description: {route.description}</span>
             <br/>
-            Comments:
+            <h4>Comments:
+            </h4>
             {commentList(route.comments)}
-
             <br/>
 
             {this.props.children || <CommentButton/>}
-            <button onClick={this.handleComplete}>Complete Run!</button>
-            <button onClick={this.returnToDashboard}>Back to Dashboard</button>
+            <div className="route-button-container">
+              <button onClick={this.handleComplete}>Complete Run!</button>
+              <button onClick={this.returnToDashboard}>Back to Dashboard</button>
+            </div>
         </div>
         </div>
 

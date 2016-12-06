@@ -15,9 +15,11 @@ class CommentButton extends React.Component {
   }
   render() {
     return (
-      <button className="comment-button" onClick={this.handleClick}>
+      <div className="route-button-container">
+      <button  onClick={this.handleClick}>
         Leave Comment
       </button>
+      </div>
     );
   }
 }

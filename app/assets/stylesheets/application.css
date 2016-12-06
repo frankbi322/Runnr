@@ -16,14 +16,31 @@
  body{
    font-family: 'Open Sans', sans-serif;
    font-size: 100%;
-
+   list-style: none;
    opacity: 50%;
    background-size: 100%;
    background-repeat: no-repeat;
    align-items: center;
  }
 
+ ul{
+   display:flex;
+   align-items: flex-start;
+ }
 
+ li{
+   display: flex;
+   margin: 5px;
+   padding: 5px;
+   list-style: none;
+ }
+
+ span{
+   margin-left: 10px;
+   display: flex;
+   align-items: flex-start;
+   text-align: left;
+ }
 
  login-form-container{
    display: flex;
@@ -373,6 +390,18 @@ div login-form-container{
     box-sizing: border-box;
  }
 
+ .button {
+   background-color: #39CCCC;
+    border: 1px solid #c3c2c2;
+    width: 125px;
+    border-style: solid;
+    border-width: 1px;
+ }
+
+ .button:hover{
+   cursor: pointer;
+   background-color: #7FDBFF;
+ }
 
  /*.guest {
    background-color: #0083d5;

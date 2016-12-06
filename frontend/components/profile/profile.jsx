@@ -7,8 +7,8 @@ class UserProfile extends React.Component {
   }
 
 
-
   render(){
+    if (this.props.currentUser){
     return (
       <div>
         <div className="profile">
@@ -18,6 +18,7 @@ class UserProfile extends React.Component {
         </div>
     </div>
     );
+  }
   }
 
 }
