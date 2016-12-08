@@ -64,11 +64,16 @@
    cursor: pointer;
  }
 
+h2.header-name{
+  border-bottom: none;
+}
+
  h2 {
    font-weight: 700;
    display: flex;
    justify-content: center;
    align-items: center;
+   border-bottom: 1px solid gray;
  }
 
  h5 {
