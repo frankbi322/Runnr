@@ -22,10 +22,5 @@ module.exports = {
   devtool: 'source-maps',
   resolve: {
     extensions: ["", ".js", ".jsx" ]
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-   VERSION: JSON.stringify(require("./package.json").version)
- })
-  ]
+  }
 };

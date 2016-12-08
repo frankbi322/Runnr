@@ -14,13 +14,15 @@
  *= require_self
  */
  body{
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'PT Sans', sans-serif;
+   background-color: #f9f9f9;
    font-size: 100%;
    list-style: none;
    opacity: 50%;
    background-size: 100%;
    background-repeat: no-repeat;
-   align-items: center;
+   padding: 0;
+   margin: 0;
  }
 
  ul{
@@ -70,7 +72,7 @@
  }
 
  h5 {
-   font-family: 'Roboto Condensed', sans-serif;
+   font-family: 'PT Sans', sans-serif;
    color: #104DA1;
    display: inline-block;
 
@@ -83,7 +85,7 @@
    color: #686868;
    vertical-align: middle;
    text-align: right;
-   font-family: 'Roboto Condensed', sans-serif;
+   font-family: 'PT Sans', sans-serif;
    font-size: 16px;
 
  }
@@ -147,26 +149,55 @@
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
-
-
  }
 
  .nav-buttons {
    display: flex;
-   justify-content: space-between;
-   width: 65%;
+   justify-content: space-around;
+   width: 100%;
  }
 
+ .nav-item a{
+   line-height: 24px;
+   color: #b2b2b2;
+  }
+
+  .nav-item a:hover{
+    color: black;
+  }
+
  .user-info {
+   width: 150px;
    display: flex;
    justify-content: space-between;
+   padding: 10px;
+   margin: 10px;
+ }
+
+ .user-info h2{
+   font-weight: 500;
+   font-size: 16px;
+   text-transform: uppercase;
+ }
+
+ .user-info a{
+
+ }
+
+ table {
+
+ }
+
+ .table-container {
+   width: 100%;
+
  }
 
  nav li {
    text-transform: uppercase;
    display: inline-block;
    float: left;
-   padding: 26px 5px;
+   padding: 5px;
  }
 
  nav li:hover {
@@ -206,10 +237,13 @@ div login-form-container{
    text-align: center;
  }
 
+ nav li {
+   margin: 15px;
+ }
 
  h2 {
-   font-weight: 700;
-   font-size: 24px;
+   font-weight: 500;
+   font-size: 16px;
    text-transform: uppercase;
  }
 
@@ -269,7 +303,7 @@ div login-form-container{
    padding: 11px 40px 10px 30px;
    color: #686868;
    vertical-align: middle;
-   font-family: 'Roboto Condensed', sans-serif;
+   font-family: 'PT Sans', sans-serif;
    }
 
    .sub-nav-bar .selected {
@@ -430,7 +464,7 @@ div login-form-container{
 
  input.submit {
    border: 1px;
-   background-color: #ffaf1a;
+   background-color: ##2ddb8d;
  }
 
  input.submit:hover {
@@ -444,15 +478,51 @@ div login-form-container{
  background-color: red;
  }
 
- input.logout-button {
-   margin: 5px 0;
-   width: 60px;
-   height: 20px;
-   line-height: 14px;
-   background-color: #ffaf1a;
-   background-color: #e70000;
+ .logout-button{
+   display: flex;
+   align-items: center;
+   vertical-align: middle;
+ }
+
+.logout-button a{
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #b2b2b2;
+ }
+
+ .logout-button a:hover {
+   color: black;
+   cursor: pointer;
+   transition: color 0.3s ease-in-out, opacity .3s ease-in-out, background .3s ease-in-out;
  }
 
 .header-link {
   border-radius: 1px solid black;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid gray;
+}
+
+#header .container {
+  padding: 15px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #b2b2b2;
+}
+
+a:hover{
+  color: black;
+  transition: color 0.3s ease-in-out, opacity .3s ease-in-out, background .3s ease-in-out;
+}
+
+a {
+  text-decoration: none;
 }

@@ -19,32 +19,51 @@ class Greeting extends React.Component{
   render(){
     if (this.props.currentUser){
       return(
-      <hgroup className="header-group">
+      <header id="header">
+        <div className="container">
         <module_nav/>
-        <div className="nav-buttons">
-          <a href="#/dashboard"><button>DASHBOARD</button></a>
-          <a href="#/routes"><button>ROUTES</button></a>
-          <a href="#/find_friends"><button>FIND FRIENDS</button></a>
+        <nav className="nav-buttons">
+          <h1>Runnr</h1>
+
+        <div className="signup-login">
+          <ul>
+            <li><a href="#/dashboard">DASHBOARD</a></li>
+            <li><a href="#/routes">ROUTES</a></li>
+            <li><a href="#/find_friends">FIND FRIENDS</a></li>
+          </ul>
         </div>
         <div className="user-info">
           <h2 className="header-name">Hi, {this.props.currentUser.username}!</h2>
-          <button className="header-button" onClick={this.props.logout}>Log Out</button>
-        </div>
-    </hgroup>
+          <div className="logout-button">
+            <a onClick={this.props.logout}>Log Out</a>
+          </div>
+      </div>
+        </nav>
+      </div>
+    </header>
     )
     } else {
       return (
-        <div className="splash-image-container">
+        <header id="header" className="splash-image-container">
         <div id="bg">
           <img src="http://res.cloudinary.com/frankbi322/image/upload/c_limit,h_800,w_1200/v1478893566/photo-1427384906349-30452365b5e8_nq6u6z.jpg"></img>
         </div>
+        <div className="container">
         <nav className="no-current-user">
-          <div className="signup-login">
-            <a href="#/login"><button>LOG IN</button></a>
-            <a href="#/signup"><button>SIGN UP</button></a>
-          </div>
+          <div className="logo-container">
+            <h1>Runnr</h1>
+
+            <div className="signup-login">
+              <ul>
+                <li className="nav-item"><a href="#/login">LOG IN</a></li>
+                <li className="nav-item"><a href="#/signup">SIGN UP</a></li>
+              </ul>
+            </div>
+        </div>
+
         </nav>
       </div>
+      </header>
     );
     }
   }
@@ -52,3 +71,7 @@ class Greeting extends React.Component{
 }
 
 export default withRouter(Greeting);
+
+          // <Link  to="/" className="header-link"><img className="logo" src="http://res.cloudinary.com/frankbi322/image/upload/v1478906064/Screen_Shot_2016-11-11_at_3.12.36_PM_fbd0hh.png"></img></Link>
+
+                    // <Link  to="/" className="header-link"><img className="logo" src="http://res.cloudinary.com/frankbi322/image/upload/v1478906064/Screen_Shot_2016-11-11_at_3.12.36_PM_fbd0hh.png"></img></Link>

@@ -31,18 +31,20 @@ class RouteIndexItem extends React.Component {
 
 
     return (
-      <div className="item-container" onClick={this.handleClick}>
-          <img className="index-img" src={this.props.route.map_url}/>
-          <div className="route-index-item-details">
-            <h4 className="">Name: {this.props.route.name}</h4>
+      <tr  onClick={this.handleClick}>
+          <td>
+            <img  src={this.props.route.map_url}/>
+          </td>
+          <td >
+            <h4 >Name: {this.props.route.name}</h4>
             <br/>
             <h4>Created By: {this.props.route.author_name}</h4>
-          </div>
-          <div className="distance_box">
+          </td>
+          <td >
               <h4>Distance: </h4>
               {this.props.route.distance.toFixed(2)} miles
-          </div>
-      </div>
+          </td>
+      </tr>
     );
   }
 }
