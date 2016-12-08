@@ -31,23 +31,25 @@
   color: white;
 }
 
+.login-button:hover{
+  background-color: #188a57;
+  cursor: pointer;
+}
+
 .guest{
-  background-color: #39CCCC;
-  border: none;
-  width: 100px;
-  border-style: solid;
-  border-width: 1px;
+   background-color: #2ddb8d;
+   border: none;
+   width: 100px;
+   border-style: solid;
+   border-width: 1px;
+   color: white;
 }
 
 .guest:hover{
-  background-color: #7FDBFF;
+  background-color: #188a57;
   cursor: pointer;
 }
 
-.login-button:hover{
-  background-color: #7FDBFF;
-  cursor: pointer;
-}
 
 .auth-span{
   margin: 20px;

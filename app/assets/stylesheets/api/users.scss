@@ -26,10 +26,9 @@
    font-size: 20px;
    align-items: center;
    flex-direction: row;
-   border: 2px solid #ccc;
+   border-bottom: 1px solid #ccc;
    margin: 10px;
    padding: 10px;
-   border-radius: 5px;
   //  margin: 2% 2% 2% 2%;
   .follow-button{
     width: 75px;
@@ -38,4 +37,5 @@
 
 .input {
   align-content: center;
+  width: 100%;
 }

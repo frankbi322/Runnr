@@ -44,7 +44,7 @@ class UserProfile extends React.Component {
     } else {
       followButton =
       <div>
-        <button className="button" onClick={this.follow}>Add Friend!</button>
+        <button className="button" onClick={this.follow}>Add Friend</button>
       </div>;
     }
 

@@ -52,15 +52,16 @@
  }
 
  button{
-   background-color: #39CCCC;
+   background-color: #2ddb8d;
    border: none;
    width: 125px;
    border-style: solid;
    border-width: 1px;
+   color: white;
  }
 
  button:hover{
-   background-color: #7FDBFF;
+   background-color: #188a57;
    cursor: pointer;
  }
 
@@ -203,6 +204,7 @@ h2.header-name{
    display: inline-block;
    float: left;
    padding: 5px;
+   font-size: 20px;
  }
 
  nav li:hover {
@@ -421,7 +423,7 @@ div login-form-container{
    border: 1px solid #c3c2c2;
    border-radius: 5px;
    font-size: 14px;
-   line-height: 40px;
+   line-height: 25px;
    margin: 15px 0;
    padding: 0 5px;
    font-family: inherit;
@@ -429,7 +431,7 @@ div login-form-container{
     box-sizing: border-box;
  }
 
- .button {
+ /*.button {
    background-color: #39CCCC;
     border: 1px solid #c3c2c2;
     width: 125px;
@@ -440,7 +442,7 @@ div login-form-container{
  .button:hover{
    cursor: pointer;
    background-color: #7FDBFF;
- }
+ }*/
 
  /*.guest {
    background-color: #0083d5;
@@ -465,6 +467,7 @@ div login-form-container{
 
  select, input {
     height: 40px;
+    width: 100%;
  }
 
  input.submit {
