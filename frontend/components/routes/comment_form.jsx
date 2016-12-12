@@ -51,7 +51,7 @@ class CommentForm extends React.Component {
             onChange={this.update("body")}></textarea>
           <br/>
         <div className="comment-button-container">
-        <input className="button" type="submit" value="Submit Comment"></input>
+        <input className="comment-button" type="submit" value="Submit Comment"></input>
         <button onClick={this.returnToRoute}>Cancel</button>
       </div>
         </form>

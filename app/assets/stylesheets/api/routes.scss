@@ -15,7 +15,7 @@
     }
 
     .static-map{
-      width: 500px;
+      width: 90%;
       height: 500px;
       float: left;
       position: relative;
@@ -76,4 +76,15 @@
     .button-container {
 
     }
+}
+
+.comment-button{
+  background-color: #2ddb8d;
+  color: white;
+  border: 1px solid #c3c2c2;
+}
+
+.comment-button:hover{
+  cursor: pointer;
+  background-color: #188a57;
 }

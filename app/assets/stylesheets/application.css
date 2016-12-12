@@ -383,7 +383,23 @@ div login-form-container{
 
 
  footer {
-   display: block;
+   display: flex;
+   flex-direction: row;
+   height: 75px;
+   background-color: #0083d5;
+   justify-content: space-between;
+   border-top: 1px solid gray;
+ }
+
+ footer div{
+   display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+ }
+
+ footer div a{
+   margin: 10px;
+   padding: 10px;
  }
 
  nav.footer-nav {
@@ -505,7 +521,6 @@ div login-form-container{
  }
 
 .header-link {
-  border-radius: 1px solid black;
 }
 
 header {

@@ -23,7 +23,9 @@ class Greeting extends React.Component{
         <div className="container">
         <module_nav/>
         <nav className="nav-buttons">
-          <h1>Runnr</h1>
+
+            <Link  to="/" className="header-link"><img className="logo" src="http://res.cloudinary.com/frankbi322/image/upload/c_scale,h_80/v1481563432/Screen_Shot_2016-11-11_at_3_ajhnkd.png"></img></Link>
+
 
         <div className="signup-login">
           <ul>
@@ -51,7 +53,7 @@ class Greeting extends React.Component{
         <div className="container">
         <nav className="no-current-user">
           <div className="logo-container">
-            <h1>Runnr</h1>
+            <Link  to="/" className="header-link"><img className="logo" src="http://res.cloudinary.com/frankbi322/image/upload/c_scale,h_80/v1481563432/Screen_Shot_2016-11-11_at_3_ajhnkd.png"></img></Link>
 
             <div className="signup-login">
               <ul>
