@@ -55,6 +55,7 @@ class RouteDetail extends React.Component {
     const route = this.props.routes[this.props.params.routeId];
 
     return (
+      <div className="container">
         <div className="route-detail">
           <img className="static-map"src={route.map_url}/>
           <div className="route-info-container">
@@ -75,6 +76,7 @@ class RouteDetail extends React.Component {
             </div>
         </div>
         </div>
+      </div>
 
     );
   }

@@ -1,9 +1,9 @@
 .route-detail{
   display: flex;
-  margin: 0 auto;
+  margin: 5px;
   background-color: white;
-  width: 75%;
-  height: 79vh;
+  width: 100%;
+  min-height: 82.5vh;
 
   .static-map{
     width: 500px;
@@ -33,7 +33,7 @@
 
   .comment-container{
     display: flex;
-    align-items: flex-start;
+    height: 24px;
   }
 
   .route-button-container {

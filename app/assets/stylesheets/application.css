@@ -553,3 +553,9 @@ a {
 #session-container{
   height: 79vh;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
