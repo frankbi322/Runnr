@@ -72,6 +72,7 @@ class SessionForm extends React.Component {
 		guestlogin = null;
 	}
 		return (
+			<div id="session-container">
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 					<span className="auth-span">Welcome to RunnR!</span>
@@ -102,6 +103,7 @@ class SessionForm extends React.Component {
 				</form>
 				<br/>
 
+			</div>
 			</div>
 		);
 	}

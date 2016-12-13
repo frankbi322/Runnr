@@ -549,3 +549,7 @@ a:hover{
 a {
   text-decoration: none;
 }
+
+#session-container{
+  height: 79vh;
+}
