@@ -47,4 +47,3 @@ class RouteForm extends React.Component{
 }
 
 export default withRouter(RouteForm);
-// <button onClick={this.returnToIndex}>Cancel</button>

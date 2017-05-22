@@ -41,18 +41,6 @@ class DetailMap extends React.Component {
     };
     this.map = new google.maps.Map(mapDOMNode,mapOptions);
 
-    // const parsedcoords = this.props.route.coordinates;
-    // for (let i = 0; i < parsedcoords.length-2; i+=2) {
-    //   let lat = parseFloat(parsedcoords[i]);
-    //   let lng = parseFloat(parsedcoords[i+1]);
-    //   let latlng = new google.maps.LatLng(lat,lng);
-    //   coords.concat([latlng]);
-    //   this.placeMarker(latlng,this.map);
-    // this.makeRoute(coords,this.map);
-    // }
-
-
-
     this.props.route.coordinates.forEach( coord => {
       for (let i = 0; i < coord.length - 2; i+=2) {
       let coordlat = parseFloat(coord.split(",")[i]);

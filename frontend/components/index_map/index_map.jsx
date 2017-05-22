@@ -26,34 +26,14 @@ class IndexMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
     this.MarkerManager.updateMarkers(this.props.maproutes);
 
-    // google.maps.event.addListener(this.map,'idle',()=> {
-    //   let bounds = this.map.getBounds();
-    //   let ne = { "lat": bounds.getNorthEast().lat(), "lng": bounds.getNorthEast().lng() }
-    //   let sw = { "lat": bounds.getSouthWest().lat(), "lng": bounds.getSouthWest().lng() }
-    //   this.props.updateBounds({
-    //     "northEast":ne,
-    //     "southWest":sw
-    //   });
-    // });
+
   }
 
   componentDidUpdate() {
     this.MarkerManager.updateMarkers(this.props.maproutes);
   }
 
-  _registerListeners() {
-    // google.maps.event.addListener(this.map, 'idle', () => {
-    //   const { north, south, east, west } = this.map.getBounds().toJSON();
-    //   const bounds = {
-    //     northEast: { lat:north, lng: east },
-    //     southWest: { lat: south, lng: west } };
-    //   this.props.updateFilter('bounds', bounds);
-    // });
-    // google.maps.event.addListener(this.map, 'click', event => {
-      // const coords = _getCoordsObj(event.latLng);
-    //   this._handleClick();
-    // });
-  }
+
 
 
   _handleMarkerClick(route) {

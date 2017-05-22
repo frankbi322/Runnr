@@ -45,7 +45,10 @@ class User < ApplicationRecord
     completions.count
   end
 
-  has_many :comments
+  has_many :comments,
+    class_name: :Comment,
+    primary_key: :id,
+    foreign_key: :author_id
 
 	def password=(password)
 		self.password_digest = BCrypt::Password.create(password)

@@ -45,7 +45,6 @@ const Root = ({ store }) => {
     _ensureLoggedIn(nextState,replace);
     store.dispatch(requestOtherUsers());
   };
-  // <IndexRoute component={DashboardContainer} onEnter={_ensureLoggedIn} />
 
   return (
     <Provider store={store}>
